@@ -1,0 +1,107 @@
+Introduction in java
+==============================
+           |
+           |
+           |
+           --- c/c++
+
+           1980/90s ------>   c -> c++ --> Java ?
+                                 |
+                                 |
+                                 |
+             ------
+            |     |           * fast
+            |     | <---------* simple
+            ------|           * low-level 
+               |
+            -------
+
+
+ye 90s me c/c++ fast , simple, low-level thi or direct computer se connect thi 
+
+
+Why Java ?
+==============
+
+c/c++ me portability nhi hai 
+
+portability hota ky hai =>  c/c++ ke source code ko run kaene ke liy compiler     hota hai  jo ki souce code ko comple karta hai 
+
+spose karo ki mere laptop me c/c++ ke code ko run karna chahte h to complile karnaa pdta hai or usi source code ko ager hm dusare computer/platfrom me run karate h to dubara complie karna padega  yehi resion h ki c/c++ me portability nhi hai 
+
+c/c++ platfrom dependent langauge =>  agar apke pass c/c++ ke souce code hai usko agar aap complile kaena chahte ho to  har ek platfrom ke liy alg se compile karna hoga 
+
+
+platfrom =>
+          |__ processer
+          |
+          |__ os
+          |
+
+          processor  +     os    =>   platfrom
+
+          intelx86   +     window  =>  p1 
+
+          ARM       +      MAC     =>  p2
+
+
+          agar koi c/c++ ka source code jo h usko complie karne ke liy alagr algr se complie karna hoga like p1 ke liy alg compile and p2 ke liy alg compile 
+
+          yehi to platfrom dependent langauge hai 
+
+          example se samgho ki ek p1 platfrom  me OS  window hai or ek platfrom p2 me MAC hai jb c/c++ ka code ko compile karega to window ke liy alg se machine code ganarate karega and  MAC ke liy alg se machine code ganarate karega   
+
+          isiliy isko c/c++ ko platfrom dependent langauge kahate hai 
+
+
+        program  => instruction set architecture (ISA)  =>  processor
+                     |
+                     |
+                     |
+                     ye ye batata hai ki  ky add karna hai ky load karna hai ky store karna hai ky jump karna hai  
+
+
+        har ek platfrom ke liy ISA alg hoata hai                      
+
+  Java ke disadvantages
+  ===========================
+
+  c/c++
+   |_____ platfrom dependent
+   |
+   |_____ Simplicity nhi thi 
+   |
+   |_____ Security nhi thi 
+   |
+
+
+isi karn or isko dur karne ke liy JAVA ka janam huaa tha
+
+
+java
+============|___ portability
+            |
+            |___ simple
+            |
+            |___ Security
+
+
+            jb koi source code h usko run karana hai to mere pass p1 platfrom and p2 platfrom hai dono ko complie karayenge to dono ke machine code diffrent honge isko solve karne ke liy java ne BYTECODE le kar aaya 
+
+
+            hello.java(code) => complie  => hello.class => platfrom => JVM
+
+            jo souce code hai o sabse phle cpmplie hoga  comple hote hi hellow.class  ye ek BYTECODE hota hai  souce code ka BYTECODE ganarte ho gya h  jo bhi platfrom p1, p2 hai platfrom ke hisab se machine code de lega with the help of you java virtual machine ki vhj se JVM ek prkar ka transalter hai 
+
+
+           JVM ka kam h  us source code ko
+           JVM ka kam h  us source code ko us platfrom ke hisab se machine code dena 
+
+           yehi hai portability ka concepts 
+
+
+           java is portability
+
+           wora write one, run anyware
+
+           
