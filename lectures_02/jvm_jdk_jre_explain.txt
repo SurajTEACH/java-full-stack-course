@@ -1,0 +1,116 @@
+
+     JVM, JRE & JDK 
+   ======================
+
+                                       |__ platfrom p1
+Hello.java                             |              |___JVM__convrt__machinecode
+   |________compiler_______ BYTECODE___|
+   |                                   |
+ source code                           |__ platfrom p2
+                                                     |___JVM__convrt__machinecode
+
+
+ explaination => 
+ 
+ jo Hello.java source code hai o compiler  BYTECODE me convert karta hai  fir BYTECODE jo hai alg alg platfrom me run hota h kyukki BYTECODE independent hota hai yehi BYTECODE ko JVM run karta h platfrom me  "JVM hi BYTECODE ko machine code me convert karta hai "
+
+
+
+ java -------
+            |
+            |
+            |
+          
+                      JVM => java virtual machine
+                                 
+                              |
+                              |
+                              |
+
+                       JRE => java Runtime Environment 
+                              
+                              |
+                              |
+                              |
+
+                       JDK => java Development Kit
+
+
+  JVM => JVM ka kam hota hai BYTECODE ko machine code me convert karna 
+         JVM BYTECODE ko machine langauge me convert karne ke liy two sofyware ki jarurt hoti hai 
+
+         1) compiler
+         2) Interpreter 
+
+         *  in dono ka kam hota hai source code ko lena machine code me convert karna 
+
+         *  compile ka kam hota hai h source code leta hai or ek bar me read karta hai or usko machine code me convert karta hai  or machine code kisi sytem me run hoaga jo ki CPU run karega or hmko output milega 
+
+         * Interpreter ka kam hota h source code ko line by line machine code me convert karat h fir usko kisi sytem me run hota hai or output deta hai 
+
+
+
+  most important facts
+  ------------------------
+
+     java complie and Interpreter beasd hai kyuki jb koi source code hai usko compiler BYTECODE me convert karta hai or BYTECODE ko Interpreter machine code me convert karta hai 
+
+     ye jo process hota tha bahut phle 1980/90s me 
+
+     Earlier Problems
+     ------------------
+
+     1) Hardware slow
+     2) RAM limits
+     3) Disk slow
+
+
+in mordn time me i mean ab jo problem aai uppper o ab nhi 
+
+ab hmane java ke sath  Interpreter  ke sath   JIT  compiler   add kar  diya 
+
+JIT => just in time  [jo source code me frequently use honge usko run karta hai  ]
+
+
+JVM => Interpreter + JIT 
+
+
+JVM 
+  |___ Cpnvert BYTECODE to machine code => {Interpreter + JIT compiler}
+  |
+  |___ Security (Sand-box model)
+  |
+  |___ garbage collection
+  |
+
+
+JRE => JVM + class libraries
+
+JDK => JRE + compiler + Debegger + java docs ...
+
+
+JSE => Java standrs Edition => core java
+
+JEE => Java Enterprise Edition => Jakarta EE
+
+JME => Java Micro Edition  => lightweight => replace kotiline , android
+
+
+how to run java program 
+---------------------------------         ___________
+                                         |          |
+Demo.java -------> compiler -----------> | BYTECODE |
+                javac Demo.java          |__________|
+              [source code ko run]         Demo.class 
+                                               |
+                                               |  java Demo [BYTECODE ko run ]
+                                               |
+                                               |
+                                               JRE => {JVM + Interpreter + JIT + 
+                                               |        class libraries }
+                                               |
+                                               |
+                                               |
+                                             Machine code
+                                               |
+      output   <--------------- CPU <----------|             
