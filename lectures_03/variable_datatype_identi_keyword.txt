@@ -1,0 +1,108 @@
+
+
+Variable =>  kisi value ko kisi cantaner me store kaene keliy  us cantainer ka name hota hai usi container ko variable kahte hai
+
+Identifiers =>  jo value container me store hoti hai usi ka kuch name dete hai usi ko inentifiers kahtee hai 
+like - int  firstNum = 10;
+
+jo firstNam hai o identifier hai kyuki jo 10 value hai o firstNumber name ke contaire me store hai 
+
+Literal =>  Literal o hota hai jo  firstName me jo value store hai usi ko Literal kahte hai 
+
+declare variable 
+=================================
+
+data_type name      variable name
+--------------      ----------------
+
+int firstNumber;
+
+
+data_type
+       |
+       |___ Primitive data_type
+       |
+       |
+       |___ Non- Primitive data_type
+       |
+
+
+ Primitive data_type
+ ===============================================
+
+ 1) Integer =>  byte, short, int, long
+
+ 2) Real Number => float, double
+
+ 3) character => char
+
+ 4) Boolean => boolean
+
+
+Range of Integr data_type
+===================================
+
+
+Name           bite                Range
+
+long           64              -9223371036854775808
+                                to positive...807
+
+int           32               -2147,483,648 to
+                                positive ....647
+
+short         16               -327,68 to 32,767
+
+
+byte          8                 -128 to 127
+
+
+Range of Real Number data_type
+========================================
+
+Name           bite                  Range
+
+double         64                4.9e-324 to 1.8e+
+                                              308
+
+float          32                1.4e-045 to 3.4e +
+                                              038e
+
+character range 
+==========================
+
+char => unicode
+
+char => 16 bit
+
+
+boolean data_type
+=========================
+
+boolean 
+      |
+      |___ true
+      |
+      |
+      |___ false
+      |
+
+boolean t = true;
+boolean f = false;
+
+
+
+Keywords
+===================
+
+System.out.println();
+
+class
+
+public
+
+static
+
+void
+
+68 Keywords  hote hai 
