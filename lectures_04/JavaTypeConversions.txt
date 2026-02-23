@@ -1,0 +1,99 @@
+
+Type conversion in java
+                      |
+                      |_____ Implicit
+                      |
+                      |_____ Explicit
+                      |
+                      |
+
+    
+    byte b = 24;
+
+    int i;
+
+    i = b;
+    System.out.println(i); // 24 output
+
+Rule
+++++++++
+
+   Destination data type should be wider then source data type;
+
+   byte =>  -128 to 127 
+     |
+     |
+     |__ 8 bit 
+
+   int 
+     |
+     |
+     |___ 32 bit
+
+ widening conversion
+ -----------------------
+
+ short ----> int
+ int ------> long
+ ..............etc 
+
+
+Explicit  conversion
+---------------------
+                    |
+                    |
+                    |_____ casting
+
+  int i = 300;
+  byte b;
+  b = i // wrong
+
+  b = (byte) i; // right    
+
+  System.out.println(b);
+
+  * sabse phle  300 ka binary nikalo
+
+  100101100
+
+  output = 44 aayega 
+
+  * ek or trick   h 
+
+  jo interger number h usko  %  kar do    range se 
+
+  jese 300 % 256 = 44  // byte ka range 256 => -128 to + 127
+
+
+
+      long => int
+
+      double => float
+             |
+             |
+             |
+             |
+             |
+        Narrowing conversion
+
+char c = 'a';            
+
+int i = c;
+
+System.out.println(i);
+              
+
+char = 16  bit
+int = 32 bit
+
+
+Trncating conversion
+-----------------------
+
+Float _______
+            |
+            |___ int 
+            |
+double _____|
+
+  
