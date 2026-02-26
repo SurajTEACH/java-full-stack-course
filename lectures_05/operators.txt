@@ -1,0 +1,332 @@
+OPERATORES IN JAVA 
+     |
+     |
+     |
+     |___1 Arithmetic OPERATORES
+                   |
+                   |
+      {+, -, *, /, %, +=, -=, *=, =/, %=, ++, --}
+
+     |
+     |
+     |
+     |__ 2 Relational OPERATORES
+                   |
+                   |
+                   |
+                   |
+         {==, !=, <, >, <=, >=}
+
+         * relational OPERATORES hmko boolean value dete hai 
+
+     |
+     |
+     |
+     |______ 3 Bitwise OPERATORES
+                      |
+                      |
+                      |
+                      |___ Bit Manipulation
+                               |
+                               |
+                           {&, | , >>, <<<, << , &=, ...etc}
+
+       📌 1️⃣ Bitwise AND (&)
+
+🔹 Symbol: &
+🔹 Rule: दोनों bits 1 हों तभी result 1 होगा, वरना 0
+
+| A | B | A & B |
+| - | - | ----- |
+| 0 | 0 | 0     |
+| 0 | 1 | 0     |
+| 1 | 0 | 0     |
+| 1 | 1 | 1     |
+
+
+int a = 5;   // 0101
+int b = 3;   // 0011
+
+int result = a & b; 
+System.out.println(result); // 1
+
+📌 2️⃣ Bitwise OR (|)
+
+🔹 Symbol: |
+🔹 Rule: अगर किसी भी bit में 1 है तो result 1
+
+| A | B | A | B |
+| - | - | ----- |
+| 0 | 0 | 0     |
+| 0 | 1 | 1     |
+| 1 | 0 | 1     |
+| 1 | 1 | 1     |
+
+int a = 5;   // 0101
+int b = 3;   // 0011
+
+int result = a | b;
+System.out.println(result); // 7
+
+3️⃣ Bitwise XOR (^)
+
+🔹 Symbol: ^
+🔹 Rule: दोनों bits अलग हों तो 1, समान हों तो 0
+
+| A | B | A ^ B |
+| - | - | ----- |
+| 0 | 0 | 0     |
+| 0 | 1 | 1     |
+| 1 | 0 | 1     |
+| 1 | 1 | 0     |
+
+
+int a = 5;   // 0101
+int b = 3;   // 0011
+
+int result = a ^ b;
+System.out.println(result); // 6
+
+4️⃣ Bitwise NOT (~)
+
+🔹 Symbol: ~
+🔹 Rule: 0 को 1 और 1 को 0 बना देता है
+
+🔹 Example:
+
+int a = 5;   // 00000000 00000000 00000000 00000101
+int result = ~a;
+System.out.println(result); // -6
+
+Formula:
+
+~n = -(n+1)
+
+Left shift <<
+=======================
+
+✅ n << k = n × (2^k)
+
+यानी अगर किसी number को k बार left shift किया, तो वो 2 की power से multiply हो जाता है।
+
+📌 Rule (Golden Formula)
+n << k  =  n × (2^k)
+
+जहाँ
+
+n = original number
+
+k = कितनी बार shift किया
+
+int n = 5;
+int result = n << 1;
+
+n << 1
+= 5 × (2^1)
+= 5 × 2
+= 10
+
+int n = 7;
+int result = n << 2;
+
+7 << 2
+= 7 × (2^2)
+= 7 × 4
+= 28
+
+Right Shitt
+=====================
+
+✅ n >> k = n ÷ (2^k)
+
+यानी अगर किसी number को k बार right shift किया, तो वो 2 की power से divide हो जाता है।
+
+📌 Golden Formula
+
+n >> k = n / (2^k)
+
+जहाँ
+
+n = original number
+
+k = कितनी बार shift किया
+
+int n = 8;
+int result = n >> 1;
+
+8 >> 1
+= 8 ÷ (2^1)
+= 8 ÷ 2
+= 4
+
+int n = 20;
+int result = n >> 2;
+
+20 >> 2
+= 20 ÷ (2^2)
+= 20 ÷ 4
+= 5
+
+unsigned right shift  <<<
+==============================
+
+int n = 8;
+System.out.println(n >>> 1);
+
+8 >>> 1
+= 8 ÷ (2^1)
+= 8 ÷ 2
+= 4
+
+Positive number में >> और >>> same काम करते हैं।
+
+int n = -8;
+System.out.println(n >>> 1); 
+
+nigative number me hamesa bahut bada positive value aayega 
+
+
+Logical operator 
++++++++++++++++++++++++++
+
+
+Logical operators mainly boolean values (true / false) पर काम करते हैं।
+
+Java में 3 main logical operators होते हैं:
+
+&&   → Logical AND
+||   → Logical OR
+!    → Logical NOT
+
+📌 1️⃣ Logical AND (&&)
+👉 Rule:
+
+दोनों condition true हों तभी result true होगा।
+
+| A | B | A && B |
+| - | - | ------ |
+| T | T | T      |
+| T | F | F      |
+| F | T | F      |
+| F | F | F      |
+
+int age = 20;
+boolean hasLicense = true;
+
+if(age >= 18 && hasLicense){
+    System.out.println("You can drive");
+}
+
+✔ Output: You can drive
+
+📌 2️⃣ Logical OR (||)
+👉 Rule:
+
+अगर कोई भी condition true है → result true
+| A | B | A || B |
+| - | - | ------ |
+| T | T | T      |
+| T | F | T      |
+| F | T | T      |
+| F | F | F      |
+
+int marks = 35;
+boolean sportsQuota = true;
+
+if(marks >= 40 || sportsQuota){
+    System.out.println("Pass");
+}
+
+✔ Output: Pass
+
+📌 3️⃣ Logical NOT (!)
+👉 Rule:
+
+True को false और false को true बना देता है।
+
+| A | !A |
+| - | -- |
+| T | F  |
+| F | T  |
+
+
+boolean isRain = false;
+
+if(!isRain){
+    System.out.println("Go outside");
+}
+
+✔ Output: Go outside
+
+Assignment operator
+================================================
+
+ का काम होता है 👉 value को variable में store करना।
+
+📌 1️⃣ Simple Assignment Operator (=)
+
+सबसे basic operator।
+
+int a = 10;
+
+👉 यहाँ 10 की value a में store हो गई।
+
+📌 2️⃣ Compound Assignment Operators
+
+ये operators shortcut होते हैं।
+
+| Operator | Meaning             | Equivalent To |
+| -------- | ------------------- | ------------- |
+| `+=`     | Add and assign      | `a = a + b`   |
+| `-=`     | Subtract and assign | `a = a - b`   |
+| `*=`     | Multiply and assign | `a = a * b`   |
+| `/=`     | Divide and assign   | `a = a / b`   |
+| `%=`     | Modulus and assign  | `a = a % b`   |
+
+
+📌 3️⃣ Bitwise Assignment Operators
+
+| Operator | Equivalent To |        |    |
+| -------- | ------------- | ------ | -- |
+| `&=`     | `a = a & b`   |        |    |
+| `        | =`            | `a = a | b` |
+| `^=`     | `a = a ^ b`   |        |    |
+| `<<=`    | `a = a << b`  |        |    |
+| `>>=`    | `a = a >> b`  |        |    |
+| `>>>=`   | `a = a >>> b` |        |    |
+
+
+📊 Java Operator Precedence Table (High → Low)
+
+Level                      	Operators
+================================================
+1️⃣                        	() (Parentheses)
+
+2️⃣	                        ++ -- (Postfix)
+
+3️⃣	                        ++ -- + - ! ~ (Unary)
+
+4️⃣	                        * / %
+
+5️⃣                        	+ -
+
+6️⃣	                       << >> >>>
+
+7️⃣	                       < > <= >=
+
+8️⃣	                       == !=
+
+9️⃣	                       &
+
+🔟	                      ^
+
+1️⃣1️⃣	                    `
+
+1️⃣2️⃣	                    &&
+
+1️⃣3️⃣	                    `
+
+1️⃣4️⃣	                   ?: (Ternary)
+
+1️⃣5️⃣	                   = += -= etc.
+
