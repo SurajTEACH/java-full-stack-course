@@ -1,0 +1,13 @@
+
+flow of  control
+              |
+              |
+ ____________ |__________________________
+|                    |                  |
+|                    |                  |
+|                 Iteration             Jump
+selection                                |
+   |                       [return,break,continue]
+   |
+   |
+[if, else if , switch]

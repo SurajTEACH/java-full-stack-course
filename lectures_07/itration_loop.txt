@@ -1,0 +1,432 @@
+🔁 Loop kya hota hai?
+====================================================================================================
+
+Loop ek control structure hai jo kisi code ko repeat karta hai jab tak condition true ho.
+
+👉 Simple line:
+"Same kaam baar-baar karna ho → loop use karo"
+
+
+🧠 Types of Loops
+====================================================================================================
+
+for loop
+
+while loop
+
+do-while loop
+
+forEach (JS specific)
+
+for...in / for...of (JS advanced)
+
+
+
+1️⃣ FOR LOOP (sabse common 🔥)
+**************************************************************
+
+🔹 Syntax:
+
+for(initialization; condition; update){
+   // code
+}
+
+
+🔹 Flow:
+
+initialization → ek baar chalega
+
+condition check
+
+code run
+
+update
+
+repeat
+
+🔹 Example:
+
+for(let i = 1; i <= 5; i++){
+  System.out.println(i);
+}
+
+👉 Output: 1 2 3 4 5
+
+dekho i = 1 hai condition chek huaa 1<=5 condition true huaa loop ke ander gya print karaya = 1 fir increment ke pass gya i++ = 1 se 2  ho gya i=2 huaa fir condition chek huaa 2<=5 condition true huaa loop ke ander gya print karaya = 1 2 yese hi chlta gya jb tk condition false nhi ho jata 
+
+
+🧠 Kab use kare?
+
+✔ Jab number of iterations fixed ho
+✔ Jab counter pata ho (like 1 to 100)
+
+🌍 Real Life Example:
+
+👉 School attendance:
+
+roll number 1 se 50 tak check karna
+→ for loop best
+
+
+
+2️⃣ WHILE LOOP
+********************************************************************************
+
+🔹 Syntax:
+
+while(condition){
+   // code
+}
+
+🔹 Flow:
+
+pehle condition check hoti hai
+
+true → code run  while ke ander jayega 
+
+false → exit while ke ander nhi jayega bahar chala jayega 
+
+🔹 Example:
+
+let i = 1;
+while(i <= 5){
+  System.out.print(i);
+  i++;
+}
+
+output - 1,2,3,4,5
+
+🧠 Kab use kare?
+
+✔ Jab iterations ka count nahi pata ho
+✔ Jab condition dependent ho
+
+🌍 Real Life Example:
+
+👉 ATM se paise nikalna:
+
+jab tak balance hai → withdraw possible
+→ while loop
+
+3️⃣ DO-WHILE LOOP
+********************************************************************************
+
+🔹 Syntax:
+
+do {
+  // code
+} while(condition);
+
+🔹 Flow:
+
+pehle code run hota hai
+
+fir condition check hoti hai
+
+🔹 Example:
+
+let i = 1;
+do{
+  console.log(i);
+  i++;
+}while(i <= 5);
+
+🧠 Special Point:
+
+👉 At least 1 baar chalega hi (condition false ho tab bhi)
+
+🌍 Real Life Example:
+
+👉 Login system:
+
+ek baar login try karoge hi
+→ do-while
+
+
+🔁 4. forEach Loop in Java
+********************************************************************************
+
+Java me do tarah ke “foreach” concept milte hain:
+
+✅ (A) Enhanced for loop (most common)
+
+👉 isko hi normally “for-each loop” bolte hain
+
+🔹 Syntax:
+
+for(dataType variable : collection){
+    // code
+}
+
+🔹 Example:
+
+int[] arr = {10, 20, 30, 40};
+
+for(int num : arr){
+    System.out.println(num);
+}
+
+👉 Output: 10 20 30 40
+
+🧠 Kaise kaam karta hai?
+
+array/list ke har element ko ek-ek karke uthata hai
+
+num me value store hoti hai
+
+loop automatic next element pe chala jata hai
+
+🧠 Kab use kare?
+
+✔ jab sirf read karna ho (traverse)
+✔ index ki need na ho
+
+❌ Limitation:
+
+index access nahi milta
+
+reverse loop nahi kar sakte
+
+element modify karna tricky hota hai
+
+🌍 Real Life Example:
+
+👉 Students ke marks print karna:
+
+list me sabko ek ek karke read karna
+
+⚠️ Important:
+
+👉 isme break aur continue directly use nahi kar sakte ❌
+
+🛑 break Statement
+********************************************************************************
+🔹 Use:
+
+👉 loop ko turant stop kar deta hai
+
+🔹 Example:
+
+for(int i = 1; i <= 5; i++){
+    if(i == 3){
+        break;
+    }
+    System.out.println(i);
+}
+
+👉 Output: 1 2
+
+🧠 Kaise kaam karta hai?
+
+jaise hi condition true → loop exit
+
+baaki iterations skip
+
+🌍 Real Life Example:
+
+👉 ATM machine:
+
+sahi PIN milte hi process stop → break
+
+🔁 continue Statement
+********************************************************************************
+🔹 Use:
+
+👉 current iteration skip karta hai
+
+🔹 Example:
+for(int i = 1; i <= 5; i++){
+    if(i == 3){
+        continue;
+    }
+    System.out.println(i);
+}
+
+👉 Output: 1 2 4 5
+
+🧠 Kaise kaam karta hai?
+
+condition true → current loop skip
+
+next iteration start
+
+🌍 Real Life Example:
+
+👉 Attendance:
+
+absent student skip → next pe jao
+
+🧠 Sabse pehle: Java me loops ka overview
+////////////////////////////////////////////////////////////////////////////////
+
+Java me main loops hote hain:
+
+for loop
+
+while loop
+
+do-while loop
+
+Enhanced for-each loop
+
+🎯 1. FOR LOOP — “jab control aur count clear ho”
+________________________________________________________________________________
+
+🔹 Kab use kare?
+
+✔ Jab number of iterations pata ho
+✔ Jab index chahiye ho
+✔ Jab forward / reverse loop chalana ho
+✔ Jab step control chahiye (i+=2, i--)
+
+🔹 Example:
+for(int i = 0; i < 5; i++){
+    System.out.println(i);
+}
+🧠 Deep Understanding:
+
+Initialization → ek baar
+
+Condition → har iteration se pehle
+
+Update → har iteration ke baad
+
+👉 Full control milta hai
+
+🌍 Real-world example:
+
+👉 Array me index ke saath kaam:
+
+“har 2nd element print karo”
+
+“reverse print karo”
+
+for(int i = arr.length-1; i >= 0; i--){
+    System.out.println(arr[i]);
+}
+
+🔥 Interview Insight:
+
+👉 Agar interviewer bole:
+
+“maximum control chahiye”
+
+➡ answer: for loop
+
+🎯 2. WHILE LOOP — “jab condition important ho, count nahi”
+________________________________________________________________________________
+
+🔹 Kab use kare?
+
+✔ Jab iterations ka count unknown ho
+✔ Jab loop condition dependent ho
+✔ Jab input/user/system pe depend kare
+
+🔹 Example:
+
+int i = 1;
+
+while(i <= 5){
+    System.out.println(i);
+    i++;
+}
+
+🧠 Deep Logic:
+
+pehle condition check
+
+true → run
+
+false → stop
+
+👉 Risk: infinite loop
+
+🌍 Real-world example:
+
+👉 Login system:
+
+jab tak password sahi nahi → retry
+
+while(!isCorrectPassword){
+    // ask again
+}
+
+🔥 Interview Insight:
+
+👉 “loop until condition changes dynamically”
+➡ while loop
+
+🎯 3. DO-WHILE LOOP — “kam se kam ek baar run hona hi hai”
+________________________________________________________________________________
+
+🔹 Kab use kare?
+
+✔ Jab code at least 1 baar chalna hi chahiye
+✔ Jab condition baad me check karni ho
+
+🔹 Example:
+
+int i = 1;
+
+do{
+    System.out.println(i);
+    i++;
+}while(i <= 5);
+
+🧠 Deep Logic:
+
+pehle run
+
+baad me condition
+
+🌍 Real-world example:
+
+👉 Menu-driven program:
+
+user ko menu atleast ek baar dikhana hi hai
+
+do{
+   // show menu
+}while(choice != 0);
+
+🔥 Interview Insight:
+
+👉 “execute first, then validate”
+➡ do-while
+
+🎯 4. ENHANCED FOR LOOP (for-each) — “simple traversal”
+________________________________________________________________________________
+
+🔹 Kab use kare?
+
+✔ Jab array / collection traverse karna ho
+✔ Jab index ki need na ho
+✔ Jab code clean chahiye
+
+🔹 Example:
+
+int[] arr = {10,20,30};
+
+for(int num : arr){
+    System.out.println(num);
+}
+
+🧠 Deep Logic:
+
+har element automatically milta hai
+
+internal iterator ka use hota hai
+
+❌ Kab use na kare?
+
+jab index chahiye
+
+jab reverse loop chahiye
+
+jab modification karna ho
+
+🌍 Real-world example:
+
+👉 Student marks print karna:
+
+sirf read karna hai → best

@@ -1,0 +1,647 @@
+                                              Array in Java
+                 ==========================================================================
+
+1️⃣ Introduction of Array in Java
+******************************************
+
+Array kya hai?
+
+Array ek data structure hai jisme hum same type ke multiple values ko ek hi variable me store kar sakte hain.
+
+Simple words me:
+
+Array = Ek box jisme same type ke bahut saare data ek order me store hote hain.
+
+Example
+
+Agar 5 students ke marks store karne hain.
+
+Without Array:
+
+int m1 = 90;
+int m2 = 80;
+int m3 = 70;
+int m4 = 60;
+int m5 = 50;
+
+Yeh bahut messy {kadin} ho jata hai.
+
+Array use karenge:=>
+---------------------
+
+int marks[] = {90,80,70,60,50};
+
+Ab sab values ek hi variable me store ho gayi.
+
+2️⃣ Array kyun use karte hain?
+******************************************************************************
+
+Array use karne ke main reasons:
+
+1️⃣ Multiple data ko ek variable me store karna
+
+Example
+
+Students marks
+
+90
+80
+70
+60
+50
+
+Sabko ek hi array me store kar sakte hain.
+
+2️⃣ Memory management better hota hai
+
+Array continuous memory location me data store karta hai.
+
+Example memory:
+
+Index     Value
+0          90
+1          80
+2          70
+3          60
+4          50
+
+3️⃣ Loop ke saath easily process kar sakte hain
+
+Example
+
+for(int i=0;i<5;i++){
+    System.out.println(marks[i]);
+}
+
+3️⃣ Array kaha use hota hai (Real Life Use)
+********************************************************************************
+
+Programming me arrays bahut use hote hain:
+
+1️⃣ Student marks list
+
+marks[]
+
+2️⃣ Temperature data
+
+temperature[365]
+
+3️⃣ Game development
+
+Enemy positions
+
+enemyPosition[]
+
+4️⃣ Database data handling
+
+Records store karne me.
+
+4️⃣ Advantages of Array
+********************************************************************************
+
+1️⃣ Easy data storage
+
+Multiple values ek variable me.
+
+2️⃣ Fast access
+
+Index ke through direct access.
+
+Example
+
+marks[2]
+3️⃣ Memory efficient
+
+Continuous memory allocation.
+
+5️⃣ Disadvantages of Array
+********************************************************************************
+
+1️⃣ Fixed size
+
+Array ka size change nahi kar sakte.
+
+Example
+
+int arr[5]
+
+Baad me 6th element add nahi kar sakte.
+
+2️⃣ Same data type
+
+Array me same type ka data hi store hota hai.
+
+Wrong example
+
+int arr[] = {10,"Hello"}
+
+3️⃣ Memory waste ho sakti hai
+
+Agar array size bada ho aur data kam ho.
+
+6️⃣ Types of Array in Java
+********************************************************************************
+
+1️⃣ Single Dimensional Array
+
+Ek line me data store hota hai.
+
+Example
+
+int arr[] = {10,20,30,40};
+
+Memory
+
+Index   Value
+0       10
+1       20
+2       30
+3       40
+
+2️⃣ Two Dimensional Array
+
+Matrix form me data store hota hai.
+
+Example
+
+int arr[][] = {
+{1,2,3},
+{4,5,6}
+};
+
+Memory
+
+1 2 3
+4 5 6
+
+3️⃣ Multidimensional Array
+
+2 se zyada dimension.
+
+Example
+
+int arr[][][]
+
+7️⃣ Array Declaration in Java
+********************************************************************************
+
+Declaration ka matlab:
+
+Array variable banana
+
+Syntax
+
+dataType arrayName[];
+
+Example
+
+int marks[];
+Har word ka meaning
+int
+
+Data type
+
+Matlab integer values store hongi.
+
+marks
+
+Variable name
+
+Array ka naam.
+
+[]
+
+Array indicator
+
+Yeh batata hai ki yeh array variable hai.
+
+8️⃣ Array Initialization
+********************************************************************************
+
+Initialization ka matlab:
+
+Array me values assign karna.
+
+Example
+
+int marks[] = {90,80,70,60,50};
+
+9️⃣ Array Creation (new keyword)
+********************************************************************************
+
+Example
+
+int marks[] = new int[5];
+
+Explanation line by line:
+
+int
+
+Data type integer.
+
+marks[]
+
+Array variable.
+
+new
+
+Memory allocate karta hai.
+
+int[5]
+
+5 integer elements ke liye memory create karega.
+
+Memory structure
+
+Index   Value
+0       0
+1       0
+2       0
+3       0
+4       0
+
+Default value = 0
+
+🔟 Array Access
+********************************************************************************
+
+Array elements ko access karne ke liye index use hota hai.
+
+Index always 0 se start hota hai.
+
+Example
+
+int arr[] = {10,20,30,40};
+System.out.println(arr[2]);
+
+Output
+
+30
+
+Because
+
+index 0 = 10
+index 1 = 20
+index 2 = 30
+
+Array Operation
+********************************************************************************
+
+Hum ye operations cover karenge:
+
+1️⃣ Traversing
+2️⃣ Insertion
+3️⃣ Deletion
+4️⃣ Searching
+5️⃣ Updating
+
+1️⃣ Complete Java Program (All Array Operations)
+public class ArrayOperations {
+
+    public static void main(String[] args) {
+
+        int arr[] = {10, 20, 30, 40, 50};
+        int size = arr.length;
+
+        System.out.println("Original Array:");
+
+        for(int i = 0; i < size; i++){
+            System.out.println(arr[i]);
+        }
+
+        // Update Operation
+        arr[2] = 100;
+
+        System.out.println("Array After Update:");
+
+        for(int i = 0; i < size; i++){
+            System.out.println(arr[i]);
+        }
+
+        // Searching Operation
+        int key = 40;
+        boolean found = false;
+
+        for(int i = 0; i < size; i++){
+            if(arr[i] == key){
+                System.out.println("Element found at index: " + i);
+                found = true;
+                break;
+            }
+        }
+
+        if(found == false){
+            System.out.println("Element not found");
+        }
+
+        // Insertion Operation
+        int newElement = 25;
+        int position = 2;
+
+        int newArr[] = new int[size + 1];
+
+        for(int i = 0; i < position; i++){
+            newArr[i] = arr[i];
+        }
+
+        newArr[position] = newElement;
+
+        for(int i = position; i < size; i++){
+            newArr[i + 1] = arr[i];
+        }
+
+        System.out.println("Array After Insertion:");
+
+        for(int i = 0; i < newArr.length; i++){
+            System.out.println(newArr[i]);
+        }
+
+        // Deletion Operation
+        int deleteIndex = 3;
+
+        int delArr[] = new int[newArr.length - 1];
+
+        int j = 0;
+
+        for(int i = 0; i < newArr.length; i++){
+
+            if(i == deleteIndex){
+                continue;
+            }
+
+            delArr[j] = newArr[i];
+            j++;
+        }
+
+        System.out.println("Array After Deletion:");
+
+        for(int i = 0; i < delArr.length; i++){
+            System.out.println(delArr[i]);
+        }
+
+    }
+}
+2️⃣ Line-by-Line Explanation
+
+1️⃣ Class Declaration
+
+public class ArrayOperations
+
+Explanation:
+
+Word	Meaning
+public	Yeh class kahin se bhi access ho sakti hai
+class	Java me program class ke andar likha jata hai
+ArrayOperations	Class ka naam
+
+2️⃣ Main Method
+
+public static void main(String[] args)
+
+Explanation:
+
+Word	Meaning
+public	JVM access kar sakta hai
+static	Object banaye bina run ho sakta hai
+void	Kuch return nahi karega
+main	Program ka starting point
+String[] args	Command line arguments
+
+Program execution main() se start hota hai.
+
+3️⃣ Array Declaration + Initialization
+
+int arr[] = {10, 20, 30, 40, 50};
+
+Explanation:
+
+Part	Meaning
+int	Data type integer
+arr	Array ka naam
+[]	Array indicator
+{10,20,30,40,50}	Array values
+
+Memory representation:
+
+Index   Value
+0       10
+1       20
+2       30
+3       40
+4       50
+
+4️⃣ Array Size
+
+int size = arr.length;
+
+Explanation:
+
+Part	Meaning
+size	variable
+arr.length	array ke total elements
+
+Value:
+
+size = 5
+
+5️⃣ Print Message
+
+System.out.println("Original Array:");
+
+Explanation:
+
+Part	Meaning
+System	Java system class
+out	output stream
+println	print + next line
+
+6️⃣ Traversing Array
+
+for(int i = 0; i < size; i++)
+
+Explanation:
+
+Part	Meaning
+int i = 0	loop start index
+i < size	loop condition
+i++	increment
+
+Loop values:
+
+i = 0
+i = 1
+i = 2
+i = 3
+i = 4
+
+7️⃣ Print Array Elements
+
+System.out.println(arr[i]);
+
+Explanation:
+
+Array element print karega.
+
+Example iterations:
+
+arr[0] = 10
+arr[1] = 20
+arr[2] = 30
+arr[3] = 40
+arr[4] = 50
+
+Output:
+
+10
+20
+30
+40
+50
+
+8️⃣ Update Operation
+
+arr[2] = 100;
+
+Explanation:
+
+Index 2 ki value change hogi.
+
+Before:
+
+10 20 30 40 50
+
+After:
+
+10 20 100 40 50
+
+9️⃣ Searching Operation
+
+int key = 40;
+
+Explanation:
+
+Search karne wala element.
+
+boolean found = false;
+
+Explanation:
+
+Flag variable.
+
+false = element nahi mila
+true = element mil gaya
+if(arr[i] == key)
+
+Explanation:
+
+Compare karega:
+
+arr[i] == 40
+found = true;
+
+Matlab element mil gaya.
+
+break;
+
+Loop ko turant stop kar deta hai.
+
+🔟 Insertion Operation
+
+int newElement = 25;
+
+Insert hone wala element.
+
+int position = 2;
+
+Insert position.
+
+int newArr[] = new int[size + 1];
+
+Explanation:
+
+New array create hoga.
+
+Size:
+
+5 + 1 = 6
+Copy elements before position
+for(int i = 0; i < position; i++)
+
+Copy:
+
+10
+20
+Insert element
+newArr[position] = newElement;
+
+Result:
+
+10 20 25
+Shift remaining elements
+newArr[i + 1] = arr[i];
+
+Final array:
+
+10 20 25 100 40 50
+
+1️⃣1️⃣ Deletion Operation
+
+int deleteIndex = 3;
+
+Delete element at index 3.
+
+Create new array
+int delArr[] = new int[newArr.length - 1];
+
+Size:
+
+6 - 1 = 5
+Skip element
+if(i == deleteIndex)
+continue;
+
+Meaning:
+
+index 3 skip
+Copy remaining elements
+delArr[j] = newArr[i];
+
+Final array:
+
+10
+20
+25
+40
+50
+🚀 Final Output
+Original Array
+10
+20
+30
+40
+50
+
+Array After Update
+10
+20
+100
+40
+50
+
+Element found at index: 3
+
+Array After Insertion
+10
+20
+25
+100
+40
+50
+
+Array After Deletion
+10
+20
+25
+40
+50
+
