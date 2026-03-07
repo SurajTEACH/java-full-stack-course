@@ -1,0 +1,281 @@
+1️⃣ Function क्या होता है?
+*********************************************************************************************
+
+Function एक ऐसा code block होता है जो किसी specific काम (task) को perform करता है।
+Java में function को सामान्यतः Method कहा जाता है।
+
+👉 मतलब
+एक बार function बना लो, फिर उसे बार-बार call करके वही काम करा सकते हो।
+
+Example
+
+class Demo {
+
+    static void greet() {
+        System.out.print("Hello Suraj");
+    }
+
+    public static void main(String[] args) {
+        greet();   // function call
+    }
+}
+
+✔ greet() एक function है
+✔ main() से इसे call किया गया है
+
+2️⃣ Function क्यों use किया जाता है?
+**************************************************************************************************
+
+Function use करने के मुख्य कारण:
+
+1. Code Reusability ♻️
+
+एक ही code को बार-बार लिखने की जरूरत नहीं।
+
+2. Code Readable बनता है 📖
+
+Code समझने में आसान हो जाता है।
+
+3. Debugging आसान होती है 🔧
+
+Error जल्दी मिलती है।
+
+4. Large program को छोटे भागों में divide करना
+
+
+3️⃣ Function कहाँ और कब use करना चाहिए?
+********************************************************************************
+
+जब:
+
+1️⃣ कोई task बार-बार repeat हो रहा हो
+2️⃣ code बहुत बड़ा हो रहा हो
+3️⃣ program को modules में divide करना हो
+4️⃣ reusable logic बनाना हो
+
+Example:
+
+calculateInterest()
+sendEmail()
+validateUser()
+generatePDF()
+
+
+4️⃣ Function का Syntax (Java Method)
+********************************************************************************
+
+access_modifier return_type function_name(parameters)
+{
+    // body
+}
+
+Example
+
+public int add(int a, int b)
+{
+    return a + b;
+}
+
+| Part         | Meaning         |
+| ------------ | --------------- |
+| public       | access modifier |
+| int          | return type     |
+| add          | function name   |
+| int a, int b | parameters      |
+
+
+5️⃣ Types of Functions in Java
+********************************************************************************
+
+1️⃣ No Parameter No Return
+
+static void hello() {
+    System.out.print("Hello");
+}
+
+2️⃣ Parameter but No Return
+
+
+static void show(int x) {
+    System.out.print(x);
+}
+
+
+3️⃣ Parameter + Return
+
+
+static int add(int a, int b) {
+    return a + b;
+}
+
+
+4️⃣ No Parameter but Return
+
+
+static int number() {
+    return 10;
+}
+
+
+6️⃣ Function को Code में Define करना
+********************************************************************************
+
+
+class Test {
+
+    static void message() {
+        System.out.print("Java Function");
+    }
+
+    public static void main(String[] args) {
+
+        message();   // function call
+    }
+}
+
+7️⃣ Function Overloading
+********************************************************************************
+
+जब same function name लेकिन different parameters हों।
+
+Java decide करता है कौन सा function call होगा।
+
+Example
+class Demo {
+
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+    static int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.print(add(5, 10));
+        System.out.print(add(5, 10, 20));
+    }
+}
+
+✔ Same name
+✔ Different parameters
+
+8️⃣ Main Function क्यों होता है?
+********************************************************************************
+
+Java program की entry point main function होता है।
+
+JVM सबसे पहले main() method को execute करता है।
+
+Syntax
+public static void main(String[] args)
+
+| Part          | Meaning                    |
+| ------------- | -------------------------- |
+| public        | JVM को access देना         |
+| static        | object बनाने की जरूरत नहीं |
+| void          | return type                |
+| main          | method name                |
+| String[] args | command line arguments     |
+
+
+9️⃣ Function Chaining क्या होती है?
+********************************************************************************
+
+जब एक function दूसरे function को call करता है।
+
+main()
+   |
+   v
+functionA()
+   |
+   v
+functionB()
+
+Example:
+
+class Demo {
+
+    static void first() {
+        second();
+    }
+
+    static void second() {
+        third();
+    }
+
+    static void third() {
+        System.out.print("Function Chaining");
+    }
+
+    public static void main(String[] args) {
+        first();
+    }
+}
+
+Output
+Function Chaining
+
+🔟 Recursion क्या है?
+********************************************************************************
+
+जब function खुद को call करता है।
+
+लेकिन एक base condition होना जरूरी है।
+
+Example: Factorial
+5! = 5 × 4 × 3 × 2 × 1
+
+Code
+
+class Demo {
+
+    static int factorial(int n) {
+
+        if(n == 1)
+            return 1;
+
+        return n * factorial(n-1);
+    }
+
+    public static void main(String[] args) {
+
+        System.out.print(factorial(5));
+    }
+}
+
+Execution
+
+factorial(5)
+5 * factorial(4)
+5 * 4 * factorial(3)
+5 * 4 * 3 * factorial(2)
+5 * 4 * 3 * 2 * factorial(1)
+
+Result
+
+120
+Recursion का Use कहाँ होता है?
+
+✔ Tree traversal
+✔ Searching algorithm
+✔ Backtracking
+✔ Divide & Conquer
+
+Example
+
+Binary Search
+Quick Sort
+Merge Sort
+DFS
+
+Recursion vs Loop
+
+| Recursion         | Loop            |
+| ----------------- | --------------- |
+| function call     | iteration       |
+| stack use करता है | memory कम       |
+| complex problems  | simple problems |
+
+

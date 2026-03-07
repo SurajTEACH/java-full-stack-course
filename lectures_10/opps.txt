@@ -1,0 +1,208 @@
+1️⃣ OOPS क्या है?
+****************************************************************************************************
+
+👉 OOPS एक programming approach है जिसमें हम real world objects को code में represent करते हैं।
+
+📌 Simple भाषा में
+
+Real world चीजों को Class और Object के रूप में code में बनाना = OOPS
+
+Example (Real Life)
+
+Car 🚗
+Mobile 📱
+Student 👨‍🎓
+Bank Account 🏦
+
+इन सबके properties + actions होते हैं।
+
+Example
+Mobile 📱
+
+Properties
+---------------------
+
+color
+
+brand
+
+price
+
+Actions
+-----------------------
+
+call()
+
+message()
+
+playMusic()
+
+2️⃣ OOPS क्यों use होती है?
+********************************************************************************
+
+OOPS use करने के फायदे:
+
+✔ Code reusable हो जाता है
+✔ Code easily maintain हो जाता है
+✔ Real world system आसानी से design होता है
+✔ Large project manage करना आसान हो जाता है
+
+Example
+
+Banking System
+Hospital System
+School Management
+
+इन सब में OOPS use होता है।
+
+3️⃣ OOPS कब use करना चाहिए?
+********************************************************************************
+
+जब project बड़ा हो:
+
+✔ Banking Software
+✔ Hospital System
+✔ E-commerce
+✔ Social Media App
+
+अगर simple program है तो जरूरी नहीं।
+
+4️⃣ Class क्या होती है?
+********************************************************************************
+
+📌 Class = Blueprint / Template
+
+जैसे
+
+घर बनाने का नक्शा = Class
+
+उस नक्शे से जो घर बनता है = Object
+
+Syntax
+
+class ClassName
+{
+}
+
+Example
+
+class Student
+{
+}
+
+5️⃣ Object क्या होता है?
+********************************************************************************
+
+📌 Object = Class का instance
+
+मतलब class से जो real चीज बनती है वही object है।
+
+Syntax
+
+ClassName objectName = new ClassName();
+
+Example
+Student s1 = new Student();
+
+यहाँ
+
+s1 = object ka refrence h 
+Student = class
+
+6️⃣ Class में Characteristics और Behaviour
+********************************************************************************
+
+OOPS में 2 चीजें होती हैं
+
+1️⃣ Characteristics (Properties)
+-----------------------------------------
+
+Object की जानकारी
+
+Example
+
+name
+
+age
+
+color
+
+price
+
+2️⃣ Behaviour (Methods)
+---------------------------------------------
+
+Object क्या काम करता है
+
+Example
+
+run()
+
+eat()
+
+call()
+
+message()
+
+Example Class
+
+class Mobile
+{
+    String brand;
+    int price;
+
+    void call()
+    {
+        System.out.println("Calling...");
+    }
+
+    void message()
+    {
+        System.out.println("Sending Message...");
+    }
+}
+
+यहाँ
+
+brand = property
+price = property
+
+call() = behaviour
+message() = behaviour
+
+7️⃣ Compile Time vs Run Time
+****************************************************************************************************
+
+Compile Time
+
+जब code compile होता है
+
+Example
+
+javac Test.java
+
+यहाँ compiler check करता है
+
+✔ syntax error
+✔ spelling mistake
+
+Example error
+
+int a = "Hello";
+
+Compile time error।
+
+Run Time
+
+जब program run होता है
+
+Example
+
+java Test
+
+Example
+
+int a = 10/0;
+
+यह runtime error है।
+
