@@ -1,0 +1,571 @@
+1️⃣ Constructor kya hota hai? (Introduction)
+****************************************************************************************************
+
+Constructor ek special method hota hai jo object create hone par automatically call hota hai.
+
+Matlab jab bhi hum new keyword se object banate hain tab constructor run hota hai.
+
+Simple Definition
+
+Constructor ek special method hai jo object initialize karne ke liye use hota hai.
+
+Example
+
+class Student {
+
+    Student() {
+        System.out.println("Constructor Called");
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+
+    }
+}
+
+Output
+
+Constructor Called
+
+Yaha kya hua?
+
+Student s1 = new Student();
+
+Step by Step
+
+1️⃣ new keyword object create karta hai
+2️⃣ memory allocate hoti hai
+3️⃣ constructor automatically call hota hai
+
+2️⃣ Constructor kyu use karte hai?
+****************************************************************************************************
+
+Constructor ka main use hai initialization
+
+Example:
+
+Student object create hua but uske data ko initialize karna hai.
+
+name
+age
+rollNo
+
+Constructor automatically values set kar deta hai.
+
+Example
+class Student {
+
+    String name;
+    int age;
+
+    Student() {
+
+        name = "Suraj";
+        age = 21;
+
+    }
+
+    void display() {
+        System.out.println(name + " " + age);
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+        s1.display();
+
+    }
+}
+
+Output
+
+Suraj 21
+
+3️⃣ Constructor kaha use hota hai?
+****************************************************************************************************
+
+Constructor mainly use hota hai:
+
+1️⃣ Object initialization
+
+Student data set
+User login data
+Employee data
+
+2️⃣ Database connection
+
+Object create hote hi DB connect
+
+3️⃣ Default values set karna
+
+4️⃣ Dependency injection
+
+Frameworks me
+
+Spring Boot
+Hibernate
+
+5️⃣ Validation
+
+Object create hone par check
+
+Example
+
+age negative nahi hona chahiye
+
+4️⃣ Constructor kab use karna chahiye?
+****************************************************************************************************
+
+Constructor use karo jab:
+
+✔ object create hote hi values set karni ho
+✔ mandatory data chahiye ho
+✔ initialization karna ho
+
+Example:
+
+Student name aur age compulsory hai
+
+5️⃣ Constructor ki Properties
+****************************************************************************************************
+
+Java constructor ki kuch rules hoti hain
+
+1️⃣ Constructor ka naam class jaisa hota hai
+class Student {
+
+    Student() {
+
+    }
+
+}
+2️⃣ Return type nahi hota
+
+❌ galat
+
+void Student()
+
+✔ sahi
+
+Student()
+3️⃣ Automatically call hota hai
+
+Manual call nahi hota normally.
+
+4️⃣ Object create hone par call hota hai
+
+6️⃣ Default Values in Java
+****************************************************************************************************
+
+Agar variables ko initialize nahi kiya to Java default values assign karta hai.
+
+
+| Type    | Default Value |
+| ------- | ------------- |
+| int     | 0             |
+| double  | 0.0           |
+| boolean | false         |
+| String  | null          |
+| object  | null          |
+
+
+class Test {
+
+    int num;
+    boolean flag;
+    String name;
+
+    public static void main(String[] args) {
+
+        Test t = new Test();
+
+        System.out.println(t.num);
+        System.out.println(t.flag);
+        System.out.println(t.name);
+
+    }
+}
+
+Output
+
+0
+false
+null
+
+7️⃣ Constructor Rules
+****************************************************************************************************
+
+Java constructor ke important rules:
+
+Rule 1
+
+Constructor ka naam class ke naam jaisa hona chahiye
+
+class Student{
+
+Student(){
+
+}
+
+}
+Rule 2
+
+Constructor ka return type nahi hota
+
+Student() {
+
+}
+Rule 3
+
+Constructor inherit nahi hota
+
+Rule 4
+
+Constructor overload ho sakta hai
+
+Multiple constructor possible.
+
+8️⃣ Default Constructor
+****************************************************************************************************
+
+Default constructor Java automatically create karta hai agar hum khud nahi banate.
+
+Example
+
+class Test {
+
+    int x;
+
+    public static void main(String[] args) {
+
+        Test t = new Test();
+
+        System.out.println(t.x);
+
+    }
+}
+
+Java internally bana deta hai:
+
+Test(){
+
+}
+
+9️⃣ User Defined Default Constructor
+****************************************************************************************************
+
+Hum khud bhi bana sakte hain.
+
+class Student {
+
+    Student() {
+
+        System.out.println("Object created");
+
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+
+    }
+}
+
+🔟 Parameterized Constructor
+****************************************************************************************************
+
+Jab constructor parameters leta hai usko parameterized constructor bolte hain.
+
+Example
+class Student {
+
+    String name;
+    int age;
+
+    Student(String n, int a) {
+
+        name = n;
+        age = a;
+
+    }
+
+    void display() {
+        System.out.println(name + " " + age);
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student("Suraj",21);
+        s1.display();
+
+    }
+}
+
+Output
+
+Suraj 21
+
+
+1️⃣1️⃣ Constructor Overloading
+****************************************************************************************************
+
+Jab ek class me multiple constructors ho.
+
+Different parameters ke sath.
+
+Example
+
+class Student {
+
+    Student() {
+
+        System.out.println("Default Constructor");
+
+    }
+
+    Student(String name) {
+
+        System.out.println("Name Constructor");
+
+    }
+
+    Student(String name, int age) {
+
+        System.out.println("Name Age Constructor");
+
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+        Student s2 = new Student("Suraj");
+        Student s3 = new Student("Suraj",21);
+
+    }
+}
+
+Output
+
+Default Constructor
+Name Constructor
+Name Age Constructor
+
+1️⃣2️⃣ this keyword
+****************************************************************************************************
+
+this current object ko represent karta hai.
+
+Use cases:
+
+1️⃣ variable conflict solve
+2️⃣ constructor call
+3️⃣ current object refer
+
+Example
+class Student {
+
+    String name;
+    int age;
+
+    Student(String name, int age) {
+
+        this.name = name;
+        this.age = age;
+
+    }
+
+    void display() {
+
+        System.out.println(name + " " + age);
+
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student("Suraj",21);
+        s1.display();
+
+    }
+}
+
+this keyword Java का एक बहुत important keyword है।
+यह current object (वर्तमान object) को refer करता है।
+
+मतलब:
+जब class का object बनता है, तो this उस object को represent करता है।
+
+📌 this Keyword क्या है?
+
+Definition
+
+this एक reference variable है जो current object को point करता है।
+
+Example:
+
+class Student {
+
+    int id;
+    String name;
+
+    void show() {
+        System.out.println(this.id + " " + this.name);
+    }
+}
+
+अगर object बने:
+
+Student s1 = new Student();
+
+तो this → s1 object को refer करेगा।
+
+🔑 this keyword कब और क्यों use होता है
+
+Java में this के 6 major use होते हैं
+
+1️⃣ Instance variable को refer करने के लिए
+
+जब local variable और instance variable का नाम same हो।
+
+Example
+class Student {
+
+    int id;
+
+    void setId(int id){
+        this.id = id;
+    }
+}
+समझो
+this.id → instance variable
+id → method parameter
+
+अगर this नहीं लगाओगे तो confusion होगा।
+
+2️⃣ Current class method को call करने के लिए
+class Test {
+
+    void display(){
+        System.out.println("Hello");
+    }
+
+    void show(){
+        this.display();
+    }
+}
+
+this.display()
+मतलब current class का method call करो
+
+3️⃣ Current class constructor को call करने के लिए
+
+इसे Constructor Chaining कहते हैं।
+
+class Test {
+
+    Test(){
+        this(10);
+        System.out.println("Default Constructor");
+    }
+
+    Test(int a){
+        System.out.println(a);
+    }
+}
+
+Output
+
+10
+Default Constructor
+4️⃣ Current object को method में pass करना
+class Test {
+
+    void show(Test t){
+        System.out.println("Method called");
+    }
+
+    void display(){
+        show(this);
+    }
+}
+
+यहाँ this current object pass कर रहा है
+
+5️⃣ Current object return करने के लिए
+class Test {
+
+    Test show(){
+        return this;
+    }
+}
+
+यह method chaining में use होता है।
+
+6️⃣ Constructor में instance variable initialize करना
+
+Real-life program में यह सबसे ज्यादा use होता है।
+
+class Student {
+
+    int id;
+    String name;
+
+    Student(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
+
+    void display(){
+        System.out.println(id + " " + name);
+    }
+
+    public static void main(String args[]){
+
+        Student s1 = new Student(101,"Rahul");
+        s1.display();
+    }
+}
+
+Output
+
+101 Rahul
+🔎 Real Life Example
+class Mobile {
+
+    String brand;
+    int price;
+
+    Mobile(String brand,int price){
+        this.brand = brand;
+        this.price = price;
+    }
+
+    void show(){
+        System.out.println(brand+" "+price);
+    }
+
+    public static void main(String[] args){
+
+        Mobile m1 = new Mobile("Samsung",20000);
+        Mobile m2 = new Mobile("Apple",80000);
+
+        m1.show();
+        m2.show();
+    }
+}
+
+Output
+
+Samsung 20000
+Apple 80000
+❌ this कहाँ use नहीं कर सकते
+
+1️⃣ Static method में
+
+static void show(){
+    this.id = 10; // ❌ error
+}
+
+क्योंकि this object से जुड़ा होता है
+और static method class से जुड़ा होता है।
+

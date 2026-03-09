@@ -1,0 +1,298 @@
+1️⃣ Call by Value kya hota hai?
+
+Call by Value ka matlab hai:
+
+Method ko variable ki copy milti hai, original variable nahi.
+
+Matlab agar method me value change karoge to original variable change nahi hoga.
+
+Simple Diagram
+Original Variable → Copy → Method
+Example
+class Test {
+
+    static void changeValue(int x) {
+
+        x = 100;
+
+    }
+
+    public static void main(String[] args) {
+
+        int a = 10;
+
+        changeValue(a);
+
+        System.out.println(a);
+
+    }
+}
+Output
+10
+Kyu?
+a = 10
+↓
+method ko copy milti hai
+↓
+x = 100
+↓
+original variable change nahi hota
+
+2️⃣ Call by Reference kya hota hai?
+
+Call by Reference ka matlab hai:
+
+Method ko original object ka reference milta hai.
+
+Isliye method object ko modify kar sakta hai.
+
+⚠ Important point
+
+Java pure call by reference nahi hai
+Java actually reference ki value pass karta hai.
+
+But practically behave karta hai reference jaisa.
+
+Example
+class Student {
+
+    int age;
+
+}
+
+class Test {
+
+    static void changeAge(Student s) {
+
+        s.age = 25;
+
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+
+        s1.age = 20;
+
+        changeAge(s1);
+
+        System.out.println(s1.age);
+
+    }
+}
+Output
+25
+Kyu change hua?
+s1 → object
+↓
+method ko reference mil gaya
+↓
+object change ho gaya
+📊 Call by Value vs Call by Reference
+Feature	Call by Value	Call by Reference
+Pass kya hota hai	Copy	Reference
+Original change hota hai	❌	✔
+Primitive types	✔	❌
+Objects	Partial	✔
+
+3️⃣ Shallow Copy kya hota hai?
+
+Shallow Copy ka matlab hai:
+
+Object copy hota hai but nested object same reference share karta hai
+
+Matlab
+
+Main object → new copy
+Inner objects → same reference
+Example
+class Address {
+
+    String city;
+
+}
+
+class Student implements Cloneable {
+
+    String name;
+    Address address;
+
+    public Object clone() throws CloneNotSupportedException {
+
+        return super.clone();
+
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) throws Exception {
+
+        Address addr = new Address();
+        addr.city = "Delhi";
+
+        Student s1 = new Student();
+        s1.name = "Suraj";
+        s1.address = addr;
+
+        Student s2 = (Student) s1.clone();
+
+        s2.address.city = "Mumbai";
+
+        System.out.println(s1.address.city);
+    }
+}
+Output
+Mumbai
+Kyu?
+s1.address
+s2.address
+
+dono same object ko point kar rahe hain
+
+4️⃣ Deep Copy kya hota hai?
+
+Deep Copy ka matlab hai:
+
+Object ka complete independent copy banta hai.
+
+Matlab
+
+Main object → new
+Nested object → new
+Example
+class Address {
+
+    String city;
+
+    Address(String city) {
+        this.city = city;
+    }
+}
+
+class Student {
+
+    String name;
+    Address address;
+
+    Student(String name, Address address) {
+
+        this.name = name;
+        this.address = new Address(address.city);
+
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Address addr = new Address("Delhi");
+
+        Student s1 = new Student("Suraj", addr);
+
+        Student s2 = new Student(s1.name, s1.address);
+
+        s2.address.city = "Mumbai";
+
+        System.out.println(s1.address.city);
+
+    }
+}
+Output
+Delhi
+Kyu?
+s1.address ≠ s2.address
+
+Dono alag object hain.
+
+📊 Shallow Copy vs Deep Copy
+Feature	Shallow Copy	Deep Copy
+Object copy	✔	✔
+Nested objects	Shared	Separate
+Memory	Kam	Zyada
+Safety	Kam	Zyada
+
+5️⃣ Real Life Example
+
+Shallow Copy Example
+Car copy kar li
+but engine same hai
+
+Agar engine change hua
+
+dono car affect
+Deep Copy Example
+Car copy ki
+engine bhi new
+
+Agar engine change hua
+
+sirf ek car change hogi
+
+6️⃣ Java me kaha use hota hai?
+
+Call by Value
+
+Use hota hai:
+
+Primitive variables
+calculations
+
+Example
+
+math functions
+Call by Reference
+
+Use hota hai:
+
+Objects
+Collections
+Arrays
+Shallow Copy
+
+Use hota hai:
+
+Cloning
+performance optimization
+Deep Copy
+
+Use hota hai:
+
+secure data copy
+immutable objects
+multithreading
+
+7️⃣ Interview Trick Question
+
+Java call by value hai ya reference?
+
+Correct answer:
+
+Java always call by value hai
+
+But
+
+Objects ke case me reference value pass hoti hai
+
+8️⃣ Short Revision
+
+Call by Value
+
+copy pass hoti hai
+original change nahi hota
+
+Call by Reference
+
+reference pass hota hai
+object change ho sakta hai
+
+Shallow Copy
+
+object copy
+inner object shared
+
+Deep Copy
+
+object copy
+inner object bhi copy
