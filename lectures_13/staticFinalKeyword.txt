@@ -1,0 +1,376 @@
+1️⃣ static keyword kya hota hai
+
+Simple definition:
+
+static ka matlab hai ki wo member object ka nahi balki class ka part hota hai.
+
+Matlab:
+
+Object ke bina bhi access ho sakta hai
+
+Example:
+
+class Student {
+
+    static String college = "IIT";
+}
+
+Access:
+
+System.out.println(Student.college);
+
+Object banane ki zarurat nahi.
+
+2️⃣ static memory kaise work karti hai
+
+Java memory me:
+
+Heap → objects
+Stack → method calls
+Method Area → static members
+
+Static variable method area me store hota hai.
+
+Example:
+
+3 objects banaye
+Student s1
+Student s2
+Student s3
+
+Normal variable:
+
+3 copies
+
+Static variable:
+
+1 copy
+3️⃣ static kyu use hota hai
+1️⃣ Memory saving
+
+Ek hi copy create hoti hai.
+
+Example:
+
+college name
+company name
+country
+
+Sab students ke liye same hai.
+
+2️⃣ Common data store karna
+
+Example:
+
+Math constants
+Utility methods
+3️⃣ Utility classes
+
+Example:
+
+Math.sqrt()
+Math.random()
+4️⃣ static kaha use hota hai
+
+Java me static use hota hai:
+
+static variable
+static method
+static block
+static nested class
+5️⃣ static variable
+
+Example:
+
+class Student {
+
+    int roll;
+    String name;
+    static String college = "IIT";
+}
+
+Usage:
+
+Student.college
+Real Example
+class Counter {
+
+    static int count = 0;
+
+    Counter(){
+        count++;
+        System.out.println(count);
+    }
+}
+
+Main:
+
+new Counter();
+new Counter();
+new Counter();
+
+Output:
+
+1
+2
+3
+
+Ek hi variable increment ho raha hai.
+
+6️⃣ static method
+
+Static method object ke bina call hota hai.
+
+Example:
+
+class MathUtil {
+
+    static int add(int a,int b){
+        return a+b;
+    }
+}
+
+Call:
+
+MathUtil.add(10,20);
+Important rule
+
+Static method non-static variable directly access nahi kar sakta.
+
+Example:
+
+class Test {
+
+    int x = 10;
+
+    static void show(){
+        System.out.println(x); // error
+    }
+}
+
+Reason:
+
+x object ka part hai
+show() class ka part hai
+7️⃣ static block
+
+Static block class load hone par execute hota hai.
+
+Example:
+
+class Test {
+
+    static{
+        System.out.println("Static block executed");
+    }
+
+    public static void main(String[] args){
+        System.out.println("Main method");
+    }
+}
+
+Output:
+
+Static block executed
+Main method
+
+Use case:
+
+database initialization
+configuration loading
+8️⃣ static nested class
+
+Example:
+
+class Outer {
+
+    static class Inner {
+
+        void show(){
+            System.out.println("Inner class");
+        }
+    }
+}
+
+Use:
+
+Outer.Inner obj = new Outer.Inner();
+9️⃣ static kab use karna chahiye
+
+Use karo jab:
+
+1️⃣ Data common ho
+
+Example
+
+college name
+company name
+country
+2️⃣ Utility methods ho
+
+Example
+
+Math.sqrt()
+Collections.sort()
+3️⃣ Object create nahi karna chahte
+
+Example
+
+helper functions
+🔟 static ke disadvantages
+1️⃣ OOP principle break karta hai
+
+Object concept kam use hota hai.
+
+2️⃣ Testing difficult ho jati hai
+
+Mocking difficult hoti hai.
+
+3️⃣ Memory lifetime long hoti hai
+
+Class load hone se program end tak memory me rehta hai.
+
+1️⃣1️⃣ final keyword kya hota hai
+
+Simple definition:
+
+final ka matlab hai value ya behavior change nahi ho sakta
+
+Example:
+
+final int x = 10;
+
+Ab:
+
+x = 20 ❌ error
+1️⃣2️⃣ final kaha use hota hai
+
+Java me final use hota hai:
+
+final variable
+final method
+final class
+1️⃣3️⃣ final variable
+
+Value change nahi ho sakti.
+
+Example:
+
+final int speed = 90;
+
+Invalid:
+
+speed = 100 ❌
+Real Example
+
+Constants:
+
+final double PI = 3.14159;
+1️⃣4️⃣ final method
+
+Final method override nahi ho sakti.
+
+Example:
+
+class Animal {
+
+    final void sound(){
+        System.out.println("Animal sound");
+    }
+}
+
+Child class:
+
+class Dog extends Animal {
+
+    void sound(){ } // error
+}
+1️⃣5️⃣ final class
+
+Final class inherit nahi ho sakti.
+
+Example:
+
+final class Car {
+
+}
+
+Invalid:
+
+class BMW extends Car { } // error
+Real Example
+
+Java me famous final class:
+
+String
+Math
+Integer
+
+Example:
+
+String s = "Hello";
+
+String class inherit nahi ho sakti.
+
+1️⃣6️⃣ final kab use karna chahiye
+
+Use karo jab:
+
+1️⃣ constant value ho
+
+Example
+
+PI
+MAX_VALUE
+MIN_VALUE
+2️⃣ security chahiye
+
+Class behavior change nahi hona chahiye.
+
+3️⃣ immutability chahiye
+
+Example
+
+String
+1️⃣7️⃣ static vs final difference
+Feature	static	final
+Meaning	class level member	constant / no change
+Memory	single copy	constant value
+Change	change ho sakta hai	change nahi ho sakta
+Access	object ke bina	variable dependent
+1️⃣8️⃣ static final
+
+Java me constants banane ke liye use hota hai.
+
+Example:
+
+class MathConst {
+
+    static final double PI = 3.14159;
+}
+
+Use:
+
+System.out.println(MathConst.PI);
+1️⃣9️⃣ Real Industry Example
+
+Example:
+
+class Config {
+
+    static final String DB_URL = "localhost";
+    static final int PORT = 3306;
+}
+
+Use:
+
+Config.DB_URL
+Config.PORT
+2️⃣0️⃣ Interview Definition
+static
+
+static keyword is used to create class level variables and methods that belong to the class rather than objects.
+
+final
+
+final keyword is used to restrict modification of variables, methods, and classes.

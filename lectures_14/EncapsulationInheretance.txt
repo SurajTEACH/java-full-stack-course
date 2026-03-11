@@ -1,0 +1,927 @@
+Encapsulation (Java)
+************************************
+
+👉 Data (variables) aur unpe kaam karne wale methods ko ek hi class ke andar band kar dena aur direct access ko control karna.
+
+1️⃣ Encapsulation kya hai (What is Encapsulation)
+
+Encapsulation ka matlab hota hai Data Hiding + Controlled Access
+
+Matlab:
+
+Variables ko private bana dete hai
+
+Unko access karne ke liye getter setter methods banate hai
+
+Simple words me:
+
+Data ko secure rakhna aur usko access karne ka controlled way dena = Encapsulation
+
+
+
+2️⃣ Real Life Example
+/////////////////////////////////////////////////////////////
+
+Socho ATM Machine
+
+ATM me:
+
+Tum bank balance direct access nahi kar sakte
+
+Tum ATM interface use karte ho
+
+Process:
+
+User → ATM Interface → Bank System → Balance
+
+User direct database access nahi karta.
+
+Yahi concept Encapsulation hai.
+
+3️⃣ Java me Encapsulation ka basic concept
+********************************************************************************
+
+Encapsulation ke 3 rules:
+
+1️⃣ Variables ko private banate hai
+2️⃣ Getter method banate hai (value read karne ke liye)
+3️⃣ Setter method banate hai (value update karne ke liye)
+
+4️⃣ Simple Java Example
+class Student {
+
+    private int age;     // private variable
+    private String name;
+
+    // Setter method
+    public void setAge(int a){
+        age = a;
+    }
+
+    public void setName(String n){
+        name = n;
+    }
+
+    // Getter method
+    public int getAge(){
+        return age;
+    }
+
+    public String getName(){
+        return name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        s.setAge(20);
+        s.setName("Suraj");
+
+        System.out.println(s.getAge());
+        System.out.println(s.getName());
+    }
+}
+
+5️⃣ Code ka har line ka matlab
+*********************************************************************************
+1️⃣ class Student
+class Student
+
+Student naam ki class create hui
+
+2️⃣ private variable
+
+private int age;
+
+private ka matlab:
+
+👉 class ke bahar koi bhi access nahi kar sakta
+
+3️⃣ Setter Method
+
+public void setAge(int a)
+
+ye method age set karta hai
+
+age = a;
+
+age variable me value store ho rahi hai
+
+4️⃣ Getter Method
+
+public int getAge()
+
+ye method age return karta hai
+
+return age;
+
+5️⃣ Object create
+Student s = new Student();
+
+Student class ka object bana
+
+6️⃣ Value set karna
+
+s.setAge(20);
+
+Setter method ke through value set hui
+
+7️⃣ Value print
+
+System.out.println(s.getAge());
+
+Getter method se value mili
+
+6️⃣ Encapsulation kyu use hota hai
+*********************************************************************************
+
+Major reasons 👇
+
+1️⃣ Data Security
+
+Direct access nahi hota
+
+Example:
+
+salary = -5000
+
+ye galat value store ho sakti hai
+
+Encapsulation validation allow karta hai
+
+2️⃣ Validation
+
+Example
+
+public void setAge(int age){
+    if(age > 0){
+        this.age = age;
+    }
+}
+
+Negative age store nahi hogi.
+
+3️⃣ Data Hiding
+
+Internal implementation hidden hoti hai.
+
+4️⃣ Maintainability
+
+Code update karna easy hota hai.
+
+5️⃣ Control
+
+Data ko kaise access karna hai developer decide karta hai.
+
+7️⃣ Encapsulation kaha use hota hai
+********************************************************************************
+
+Encapsulation almost har jagah use hota hai
+
+1️⃣ Banking System
+
+Account balance hidden hota hai.
+
+2️⃣ Employee Management System
+
+Salary direct access nahi hoti.
+
+3️⃣ Student Management System
+
+Marks validation hoti hai.
+
+4️⃣ E-commerce
+
+Product price validation hoti hai.
+
+5️⃣ APIs
+
+API data ko secure rakhne ke liye encapsulation use karti hai.
+
+8️⃣ Advanced Encapsulation Example
+********************************************************************************
+
+class BankAccount {
+
+    private double balance;
+
+    public void deposit(double amount){
+        balance = balance + amount;
+    }
+
+    public void withdraw(double amount){
+        if(amount <= balance){
+            balance = balance - amount;
+        } else {
+            System.out.println("Insufficient Balance");
+        }
+    }
+
+    public double getBalance(){
+        return balance;
+    }
+}
+
+Use:
+
+BankAccount b = new BankAccount();
+
+b.deposit(5000);
+b.withdraw(2000);
+
+System.out.println(b.getBalance());
+
+9️⃣ Encapsulation ke Advantages
+********************************************************************************
+
+1️⃣ Data Security 🔐
+
+Sensitive data protected hota hai.
+
+2️⃣ Controlled Access
+
+Developer decide karta hai data kaise access hoga.
+
+3️⃣ Code Maintainable
+
+Future me update easy hota hai.
+
+4️⃣ Reusability
+
+Classes reusable hoti hai.
+
+5️⃣ Flexibility
+
+Internal logic change kar sakte ho bina user ko affect kiye.
+
+🔟 Encapsulation ke Disadvantages
+********************************************************************************
+
+1️⃣ Code Length
+
+Getter setter likhne padte hai.
+
+2️⃣ Slight Performance Overhead
+
+Direct access se thoda slow hota hai.
+
+3️⃣ Complexity
+
+Beginners ko samajhna thoda tough hota hai.
+
+
+
+Java me Access Modifiers ka main kaam hota hai control karna ki kaun kisi variable, method, class ko access kar sakta hai.
+Simple language me:
+
+Access Modifier decide karta hai ki code ka kaunsa part kaha se use ho sakta hai.
+
+Isse Security + Encapsulation + Code Control milta hai.
+
+Chalo WhatsApp style me in-depth samjhte hain 👇
+
+1️⃣ Access Modifier kya hota hai
+********************************************************************************
+
+Access Modifier ek keyword hota hai jo batata hai:
+
+class ko kaun access kare
+
+variable ko kaun access kare
+
+method ko kaun access kare
+
+Example:
+
+private int age;
+
+yaha private access modifier hai.
+
+2️⃣ Java me kitne Access Modifier hote hai
+********************************************************************************
+
+Java me 4 Access Modifiers hote hai
+
+1️⃣ private
+2️⃣ default (no modifier)
+3️⃣ protected
+4️⃣ public
+
+Access level (least → most)
+
+private < default < protected < public
+
+3️⃣ Access Modifier kaha use hote hai
+*******************************************************************
+
+Access modifiers use hote hai:
+
+class
+
+variable
+
+method
+
+constructor
+
+Example:
+
+public class Student {
+
+    private int age;
+
+    public void display(){
+
+    }
+}
+
+4️⃣ Access Modifier Access Table (Important)
+********************************************************************************
+
+| Modifier  | Same Class | Same Package | Subclass | Other Package |
+| --------- | ---------- | ------------ | -------- | ------------- |
+| private   | ✅          | ❌            | ❌        | ❌       |
+| default   | ✅          | ✅            | ❌        | ❌       |
+| protected | ✅          | ✅            | ✅        | ❌       |
+| public    | ✅          | ✅            | ✅        | ✅       |
+
+
+5️⃣ private Access Modifier
+**********************************************************************************
+
+Definition
+
+Private members sirf same class me access ho sakte hai.
+
+Example
+class Student {
+
+    private int age = 20;
+
+    void show(){
+        System.out.println(age);
+    }
+}
+
+yaha
+
+age
+
+sirf Student class ke andar use ho sakta hai
+
+Real Example
+
+Bank Account
+
+private double balance;
+
+User direct balance access nahi karega.
+
+Use karega:
+
+deposit()
+withdraw()
+getBalance()
+private kab use karte hai
+
+Use karo jab:
+
+sensitive data ho
+
+encapsulation chahiye
+
+direct modification nahi chahiye
+
+Example:
+
+password
+bank balance
+salary
+marks
+
+6️⃣ Default Access Modifier
+************************************************************
+
+Isko package-private bhi bolte hai.
+
+Agar koi modifier nahi lagate to wo default hota hai.
+
+Example:
+
+class Student {
+
+    int age;
+}
+
+yaha age default hai
+
+Access Rule
+
+Default access:
+
+same class ✅
+same package ✅
+different package ❌
+Example
+
+Package:
+
+com.student
+
+Class1 aur Class2 dono same package me hai.
+
+To access ho jayega.
+
+Default kab use kare
+
+Use karo jab:
+
+class same package me hi use hogi
+
+internal project logic ho
+
+7️⃣ Protected Access Modifier
+**********************************************************************
+
+Protected access inheritance ke liye important hota hai
+
+Access Rule
+
+Protected access:
+
+same class ✅
+same package ✅
+subclass (different package) ✅
+other classes ❌
+Example
+class Animal {
+
+    protected void sound(){
+        System.out.println("Animal sound");
+    }
+}
+
+Child class:
+
+class Dog extends Animal {
+
+    void bark(){
+        sound();
+    }
+}
+
+Dog class sound() use kar sakta hai
+
+protected kab use kare
+
+Use karo jab:
+
+inheritance use kar rahe ho
+
+child class ko access dena ho
+
+parent class logic reuse karna ho
+
+8️⃣ Public Access Modifier
+*******************************************************
+
+Public ka matlab:
+
+Har jagah access ho sakta hai
+
+Access Rule
+same class ✅
+same package ✅
+subclass ✅
+different package ✅
+Example
+public class Student {
+
+    public void display(){
+        System.out.println("Hello");
+    }
+}
+
+Ab ye method kahin se bhi call ho sakta hai
+
+public kab use karte hai
+
+Use karo jab:
+
+method public API ho
+
+class library ho
+
+external access chahiye
+
+Example:
+
+main()
+println()
+Math.sqrt()
+
+9️⃣ Real Project Structure Example
+
+Suppose project:
+
+com.bank
+
+Classes:
+
+Account
+Customer
+Transaction
+
+Example:
+
+public class Account {
+
+    private double balance;
+
+    public void deposit(double amount){
+        balance += amount;
+    }
+
+    public double getBalance(){
+        return balance;
+    }
+}
+
+yaha:
+
+balance → private
+deposit → public
+getBalance → public
+
+Reason:
+
+Direct access ❌
+Controlled access ✅
+
+
+
+1️⃣ Inheritance kya hota hai
+
+Simple definition:
+
+Inheritance ka matlab hai ek class dusri class ki properties aur methods ko use kar sake.
+
+Matlab:
+
+Parent Class → Child Class
+
+Child class parent ki features inherit karti hai.
+
+Simple Example
+class Animal {
+
+    void eat(){
+        System.out.println("Animal eats food");
+    }
+}
+
+class Dog extends Animal {
+
+    void bark(){
+        System.out.println("Dog barks");
+    }
+}
+
+Main class:
+
+public class Main {
+
+    public static void main(String[] args){
+
+        Dog d = new Dog();
+
+        d.eat();
+        d.bark();
+    }
+}
+
+Output
+
+Animal eats food
+Dog barks
+
+Dog class ne eat() method inherit kiya.
+
+2️⃣ Real Life Example
+
+Real life me bhi inheritance hota hai.
+
+Example:
+
+Animal
+   ↓
+Dog
+   ↓
+GermanShepherd
+
+Features inherit hote hai.
+
+Example:
+
+Animal → eat(), sleep()
+Dog → bark()
+GermanShepherd → guard()
+3️⃣ Java me inheritance ka syntax
+class ChildClass extends ParentClass
+
+Example
+
+class Dog extends Animal
+
+extends keyword inheritance ke liye use hota hai.
+
+4️⃣ Parent aur Child class
+Concept	Meaning
+Parent Class	jisse properties inherit hoti hai
+Child Class	jo inherit karta hai
+
+Parent class ko ye bhi bolte hai:
+
+Super class
+Base class
+
+Child class ko bolte hai:
+
+Sub class
+Derived class
+5️⃣ Inheritance kyu use hota hai
+
+Major reasons 👇
+
+1️⃣ Code Reusability
+
+Same code baar baar likhne ki jarurat nahi.
+
+Example
+
+eat()
+sleep()
+walk()
+
+Sab animals ke liye same hai.
+
+2️⃣ Code maintainability
+
+Agar parent class me change karo to sab child classes update ho jati hai.
+
+3️⃣ Real world modeling
+
+Real world relationships easily represent kar sakte ho.
+
+Example
+
+Vehicle
+Car
+Bike
+Truck
+4️⃣ Method overriding
+
+Child class parent method ko modify kar sakti hai.
+
+5️⃣ Polymorphism
+
+Inheritance polymorphism enable karta hai.
+
+6️⃣ Inheritance kab use karna chahiye
+
+Use karo jab:
+
+1️⃣ "IS-A relationship" ho
+
+Example
+
+Dog IS-A Animal
+Car IS-A Vehicle
+Teacher IS-A Person
+2️⃣ Common functionality ho
+
+Example
+
+login()
+logout()
+
+Multiple classes me use ho raha hai.
+
+3️⃣ Code duplication avoid karna ho
+7️⃣ Inheritance ke types
+
+Java me 5 types ke inheritance concepts hote hai.
+
+1️⃣ Single Inheritance
+
+Ek parent aur ek child.
+
+Animal
+   ↓
+Dog
+
+Example
+
+class Animal{
+    void eat(){
+        System.out.println("Eating");
+    }
+}
+
+class Dog extends Animal{
+    void bark(){
+        System.out.println("Barking");
+    }
+}
+2️⃣ Multilevel Inheritance
+
+Chain inheritance.
+
+Animal
+   ↓
+Dog
+   ↓
+Puppy
+
+Example
+
+class Animal{
+    void eat(){
+        System.out.println("Eating");
+    }
+}
+
+class Dog extends Animal{
+    void bark(){
+        System.out.println("Barking");
+    }
+}
+
+class Puppy extends Dog{
+    void weep(){
+        System.out.println("Weeping");
+    }
+}
+3️⃣ Hierarchical Inheritance
+
+Ek parent → multiple child
+
+Animal
+   ↓
+Dog
+Cat
+Horse
+
+Example
+
+class Animal{
+    void eat(){
+        System.out.println("Eating");
+    }
+}
+
+class Dog extends Animal{
+    void bark(){}
+}
+
+class Cat extends Animal{
+    void meow(){}
+}
+4️⃣ Multiple Inheritance
+
+Ek child → multiple parent.
+
+Example
+
+A
+B
+ ↓
+C
+
+⚠ Java me multiple inheritance class ke through allowed nahi hai.
+
+Reason:
+
+Diamond Problem
+
+But interfaces se possible hai.
+
+5️⃣ Hybrid Inheritance
+
+Combination of inheritance types.
+
+Example
+
+       Animal
+       /   \
+     Dog   Cat
+        \
+        Puppy
+
+Java me ye interfaces ke through possible hai.
+
+8️⃣ super keyword
+
+Parent class method call karne ke liye.
+
+Example
+
+class Animal{
+
+    void eat(){
+        System.out.println("Animal eating");
+    }
+}
+
+class Dog extends Animal{
+
+    void eat(){
+        super.eat();
+        System.out.println("Dog eating");
+    }
+}
+9️⃣ Method Overriding
+
+Child class parent method change kar sakti hai.
+
+Example
+
+class Animal{
+
+    void sound(){
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal{
+
+    void sound(){
+        System.out.println("Dog barks");
+    }
+}
+🔟 Advantages of Inheritance
+1️⃣ Code Reusability
+
+Code repeat nahi karna padta.
+
+2️⃣ Easy maintenance
+
+Parent change → child update.
+
+3️⃣ Faster development
+
+Common code already available hota hai.
+
+4️⃣ Real world modeling
+
+Real objects represent kar sakte ho.
+
+5️⃣ Extensibility
+
+Software easily expand ho sakta hai.
+
+1️⃣1️⃣ Disadvantages
+1️⃣ Tight coupling
+
+Child parent pe dependent hota hai.
+
+2️⃣ Complex hierarchy
+
+Zyada inheritance se code confusing ho jata hai.
+
+3️⃣ Changes impact multiple classes
+
+Parent change se sab child affect ho sakte hai.
+
+1️⃣2️⃣ Real Project Example
+
+Example:
+
+E-commerce System
+
+Structure:
+
+User
+   ↓
+Customer
+Admin
+Seller
+
+Common methods:
+
+login()
+logout()
+updateProfile()
+
+Customer methods:
+
+placeOrder()
+trackOrder()
+
+Admin methods:
+
+addProduct()
+deleteProduct()
