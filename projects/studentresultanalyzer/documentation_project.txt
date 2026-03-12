@@ -1,0 +1,276 @@
+📘 Student Result Analyzer – Documentation
+1. Introduction
+
+The Student Result Analyzer is a Java-based console application designed to manage and analyze student academic results. The program stores student information such as name, enrollment number, and marks in multiple subjects, and allows users to retrieve the complete result of a student using their enrollment number.
+
+The system calculates:
+
+Total marks
+
+Percentage
+
+Grade
+
+Performance message
+
+This project demonstrates the use of arrays, loops, conditional statements, and functions in Java.
+
+2. Objectives
+
+The main objectives of this project are:
+
+To store and manage multiple students’ academic records.
+
+To search a student using their enrollment number.
+
+To calculate total marks and percentage.
+
+To assign a grade based on percentage.
+
+To display a performance message for the student.
+
+3. Technologies Used
+
+Programming Language: Java
+
+Concepts Used:
+
+Arrays
+
+2D Arrays
+
+Loops (for loop)
+
+Conditional statements (if–else)
+
+Functions / Methods
+
+Scanner class for input
+
+4. Program Structure
+
+The program contains the following main methods:
+
+4.1 main() Method
+
+The main() method is the entry point of the program.
+It performs the following tasks:
+
+Takes input for the number of students.
+
+Stores student names.
+
+Stores enrollment numbers.
+
+Stores marks of each student in 5 subjects.
+
+Asks the user to enter an enrollment number.
+
+Searches the student using a loop.
+
+Calls the studentMain() method to display the result.
+
+4.2 studentMain()
+studentMain(String[] roll, String[] name, int[][] marks, int index)
+
+This method displays the complete result of a student, including:
+
+Enrollment number
+
+Student name
+
+Marks in each subject
+
+Total marks
+
+Percentage
+
+Grade
+
+Performance message
+
+It calls other methods such as:
+
+totalMarks()
+
+percentage()
+
+grade()
+
+message()
+
+4.3 totalMarks()
+public static int totalMarks(int[][] marks, int index)
+
+This method calculates the sum of marks for all subjects of a particular student.
+
+Example:
+
+90 + 89 + 98 + 78 + 100 = 455
+4.4 percentage()
+
+public static double percentage(int totalMarks)
+
+This method calculates the percentage of marks.
+
+Formula:
+
+Percentage = (Total Marks / Maximum Marks) × 100
+
+Since there are 5 subjects with 100 marks each, the maximum marks are 500.
+
+Example:
+
+Percentage = (455 / 500) × 100 = 91%
+
+4.5 grade()
+
+public static char grade(double percentage)
+
+This method assigns a grade based on percentage.
+
+| Percentage | Grade |
+| ---------- | ----- |
+| 80 – 100   | A     |
+| 60 – 79    | B     |
+| 40 – 59    | C     |
+| Below 40   | D     |
+
+4.6 message()
+public static String message(char ch)
+
+This method returns a performance message based on
+
+| Grade | Message           |
+| ----- | ----------------- |
+| A     | Excellent Student |
+| B     | Good Student      |
+| C     | Average Student   |
+| D     | Fail Student      |
+
+
+5. Data Structures Used
+
+1️⃣ Name Array
+
+Stores names of students.
+
+String[] name
+
+Example:
+
+sunny
+suraj
+vikash
+sujit
+manish
+
+2️⃣ Enrollment Number Array
+*******************************************************************************
+
+Stores enrollment numbers.
+
+String[] roll
+
+Example:
+
+0191cs221210
+0191cs221208
+0191cs221227
+0191cs221207
+0191cs221116
+
+3️⃣ Marks 2D Array
+*****************************************************************************
+
+Stores marks of each student in 5 subjects.
+
+int[][] marks
+
+Structure:
+
+Student → Subjects
+
+marks[student][subject]
+
+Example:
+
+marks[0][0] → sunny subject1
+marks[0][1] → sunny subject2
+
+6. Program Workflow
+******************************************************************************************
+
+The working process of the program is:
+
+User enters the number of students.
+
+User enters student names.
+
+User enters enrollment numbers.
+
+User enters marks of 5 subjects for each student.
+
+User enters an enrollment number to search.
+
+The program:
+
+Searches for the enrollment number.
+
+If found → displays student result.
+
+If not found → displays error message.
+
+7. Sample Output
+******************************Student Result******************************
+
+Enrollment Number : 0191cs221210
+Student Name : sunny
+
+Marks in Subjects :
+Subject 1 : 90
+Subject 2 : 89
+Subject 3 : 98
+Subject 4 : 78
+Subject 5 : 100
+
+Total Marks : 455
+Percentage : 91.0%
+
+Grade : A
+Message : Excellent Student
+8. Advantages
+
+Simple and easy to understand
+
+Demonstrates core Java concepts
+
+Efficient search using enrollment number
+
+Modular design using functions
+
+9. Limitations
+***********************************************
+
+Data is not stored permanently.
+
+No graphical user interface (GUI).
+
+Only supports 5 subjects.
+
+10. Future Improvements
+************************************************************************************
+
+The system can be enhanced by adding:
+
+Student rank calculation
+
+Topper detection
+
+Class average
+
+Database storage (MySQL)
+
+GUI using JavaFX or Swing
+
+Web version using Spring Boot + React

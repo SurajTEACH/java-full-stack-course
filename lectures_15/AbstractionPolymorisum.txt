@@ -1,0 +1,387 @@
+
+
+1. Abstraction in Java
+Abstraction kya hota hai
+
+Abstraction ka matlab hota hai unnecessary details ko hide karna aur sirf important functionality ko dikhana.
+
+Simple words me:
+
+User ko “WHAT” dikhana hai, “HOW” nahi dikhana
+
+Example (Real life) 🚗
+Car chalate time tumhe sirf ye pata hota hai:
+
+accelerator dabao → car speed badhegi
+
+brake dabao → car rukegi
+
+Lekin engine ka internal mechanism nahi pata hota.
+
+Yehi Abstraction hai.
+
+Abstraction kyu use karte hai
+
+1️⃣ Complexity kam karne ke liye
+2️⃣ Code ko secure banane ke liye
+3️⃣ Implementation hide karne ke liye
+4️⃣ Flexible system banane ke liye
+
+Java me Abstraction kaise achieve hota hai
+
+Java me 2 ways se abstraction achieve hota hai:
+
+1️⃣ Abstract Class
+2️⃣ Interface
+
+2. Abstract Class
+Abstract Class kya hoti hai
+
+Abstract class wo class hoti hai jisme:
+
+abstract methods ho sakte hai
+
+normal methods bhi ho sakte hai
+
+Abstract method ka matlab:
+
+method declare hota hai but uski body nahi hoti
+
+Example:
+
+abstract class Vehicle {
+
+    abstract void start();   // abstract method
+
+    void stop() {            // normal method
+        System.out.println("Vehicle stopped");
+    }
+}
+Abstract Method
+abstract void start();
+
+Yaha:
+
+abstract → keyword
+
+void → return type
+
+start() → method name
+
+Isme method body nahi hoti
+
+Abstract Class ka Object
+
+Abstract class ka object directly nahi ban sakta
+
+❌ Wrong
+
+Vehicle v = new Vehicle();
+
+✔ Correct
+
+Abstract class ko inherit karna padega.
+
+Example
+abstract class Animal {
+
+    abstract void sound();
+
+}
+
+class Dog extends Animal {
+
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Dog d = new Dog();
+        d.sound();
+
+    }
+}
+
+Output
+
+Dog barks
+Abstract Class Rules
+
+1️⃣ abstract class ka object nahi ban sakta
+2️⃣ abstract method ki body nahi hoti
+3️⃣ subclass ko abstract method implement karna padta hai
+4️⃣ abstract class me constructor ho sakta hai
+5️⃣ variables aur normal methods ho sakte hai
+
+Abstract Class kab use karte hai
+
+Abstract class use hoti hai jab:
+
+classes me common functionality ho
+
+kuch methods same ho
+
+kuch methods alag ho
+
+Example:
+
+Vehicle
+ |
+ |---- Car
+ |
+ |---- Bike
+ |
+ |---- Truck
+
+Sab vehicles start() karte hai but implementation alag hota hai.
+
+3. Interface in Java
+Interface kya hota hai
+
+Interface ek pure abstraction provide karta hai.
+
+Interface me:
+
+sirf method declaration hota hai
+
+method body nahi hoti (Java 8 se default method allowed)
+
+Example:
+
+interface Animal {
+
+    void sound();
+
+}
+Interface implement kaise hota hai
+interface Animal {
+
+    void sound();
+
+}
+
+class Dog implements Animal {
+
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+
+}
+Interface Rules
+
+1️⃣ Interface ka object nahi ban sakta
+2️⃣ Methods by default public abstract hote hai
+3️⃣ Variables public static final hote hai
+4️⃣ Multiple inheritance support karta hai
+
+Interface Example
+interface Flyable {
+
+    void fly();
+
+}
+
+class Bird implements Flyable {
+
+    public void fly() {
+        System.out.println("Bird can fly");
+    }
+
+}
+Interface kab use karna chahiye
+
+Interface use hota hai jab:
+
+✔ multiple classes same behaviour follow kare
+✔ multiple inheritance chahiye
+✔ loosely coupled system banana ho
+
+Example:
+
+Payment system
+
+CreditCard
+UPI
+PayPal
+
+Sabka pay() method alag hota hai.
+
+Abstract Class vs Interface
+
+| Feature     | Abstract Class        | Interface             |
+| ----------- | --------------------- | --------------------- |
+| Object      | object nahi ban sakta | object nahi ban sakta |
+| Methods     | abstract + normal     | mostly abstract       |
+| Variables   | normal variables      | public static final   |
+| Inheritance | single inheritance    | multiple inheritance  |
+| Keyword     | extends               | implements            |
+
+
+Example
+abstract class Animal {
+
+    abstract void sound();
+
+}
+
+interface Runable {
+
+    void run();
+
+}
+
+class Dog extends Animal implements Runable {
+
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+    public void run() {
+        System.out.println("Dog runs");
+    }
+
+}
+4. Polymorphism in Java
+Polymorphism kya hota hai
+
+Poly = many
+Morph = forms
+
+Ek hi method ka multiple behaviour hona
+
+Example:
+
+sound()
+
+Dog → bark
+Cat → meow
+
+Polymorphism Types
+
+Java me 2 types hote hai
+
+1️⃣ Compile Time Polymorphism
+2️⃣ Runtime Polymorphism
+
+1. Compile Time Polymorphism
+
+Isko Method Overloading bhi kehte hai.
+
+Ek hi method name but different parameters
+
+Example:
+
+class MathUtil {
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+}
+
+Yaha:
+
+add()
+
+method same hai but parameters alag hai.
+
+2. Runtime Polymorphism
+
+Isko Method Overriding kehte hai.
+
+Parent method ko child class override karta hai.
+
+Example
+
+class Animal {
+
+    void sound() {
+        System.out.println("Animal sound");
+    }
+
+}
+
+class Dog extends Animal {
+
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+}
+Runtime Polymorphism ka real use
+Animal a = new Dog();
+a.sound();
+
+Output
+
+Dog barks
+
+Isko Dynamic Method Dispatch kehte hai.
+
+Real Life Example (Abstraction + Polymorphism)
+abstract class Shape {
+
+    abstract void draw();
+
+}
+
+class Circle extends Shape {
+
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+
+}
+
+class Rectangle extends Shape {
+
+    void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Shape s;
+
+        s = new Circle();
+        s.draw();
+
+        s = new Rectangle();
+        s.draw();
+
+    }
+
+}
+
+Output
+
+Drawing Circle
+Drawing Rectangle
+Interview Important Points
+
+Abstraction achieve hota hai:
+
+✔ abstract class
+✔ interface
+
+Abstract class use karo jab:
+
+common functionality share karni ho
+
+Interface use karo jab:
+
+multiple inheritance chahiye
+
+loosely coupled system banana ho

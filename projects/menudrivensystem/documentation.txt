@@ -1,0 +1,324 @@
+📄 Food Stall Menu Driven System (Java) – Documentation
+1. Project Overview
+
+Project Name: Food Stall Menu Driven System
+Technology: Java
+Concepts Used:
+
+Data Types
+
+Arrays
+
+If-Else
+
+Functions
+
+Menu Driven Logic
+
+Purpose:
+Food Stall पर आने वाले customer को menu दिखाना, item select करवाना, quantity लेना और total bill calculate करना।
+
+2. System Flow (Working Process)
+
+System का flow कुछ इस प्रकार होगा:
+
+Program start होगा
+
+User को food menu दिखेगा
+
+User item select करेगा
+
+Quantity डालेगा
+
+Bill calculate होगा
+
+Final total amount दिखेगा
+
+Exit option मिलेगा
+
+Flow Diagram (Logic):
+
+Start
+  |
+Show Menu
+  |
+User Choice
+  |
+Check Item (If-Else)
+  |
+Enter Quantity
+  |
+Calculate Price
+  |
+Add to Total Bill
+  |
+Show Total
+  |
+Exit
+3. Data Structures Used
+1️⃣ Arrays
+
+Food items और price store करने के लिए array का उपयोग होगा।
+
+Example:
+
+String foodItems[]
+int prices[]
+
+Example Data:
+
+foodItems = {Burger, Pizza, Sandwich, Momos, ColdDrink}
+
+prices = {50, 120, 70, 60, 40}
+4. Functions Design
+
+Industry style में पहले functions decide किए जाते हैं।
+
+Function Name	Purpose
+showMenu()	Food menu display करना
+getChoice()	User से item choice लेना
+getQuantity()	Quantity लेना
+calculateBill()	Price calculate करना
+displayBill()	Final bill show करना
+main()	Program control
+5. Function Details
+1️⃣ showMenu()
+Purpose
+
+User को food stall का menu दिखाना।
+
+Input
+
+No input
+
+Output
+
+Menu display
+
+Logic
+Print Food Stall Menu
+Show all food items
+Show price of each item
+Show Exit option
+
+Example Output
+
+---- Food Stall Menu ----
+
+1 Burger      50
+2 Pizza       120
+3 Sandwich    70
+4 Momos       60
+5 ColdDrink   40
+6 Exit
+2️⃣ getChoice()
+Purpose
+
+User से menu choice लेना।
+
+Input
+
+User input (integer)
+
+Output
+
+Selected item number
+
+Logic
+Ask user to enter choice
+Return choice
+
+Example
+
+Enter your choice:
+3️⃣ getQuantity()
+Purpose
+
+Selected item की quantity लेना।
+
+Input
+
+User input
+
+Output
+
+Quantity
+
+Logic
+Ask user for quantity
+Return quantity
+
+Example
+
+Enter Quantity:
+4️⃣ calculateBill()
+Purpose
+
+Selected item की total price calculate करना।
+
+Input
+
+Item number
+Quantity
+
+Output
+
+Total price
+
+Formula
+Total = price * quantity
+
+Example
+
+Burger price = 50
+Quantity = 2
+
+Total = 100
+5️⃣ displayBill()
+Purpose
+
+Final bill user को दिखाना।
+
+Input
+
+Total amount
+
+Output
+----- Final Bill -----
+Total Amount = 250
+Thank You Visit Again
+6️⃣ main()
+Purpose
+
+Program execution control।
+
+Logic
+Start program
+
+Call showMenu()
+
+Take user choice
+
+If choice is valid
+     Take quantity
+     Calculate bill
+     Display bill
+
+Else if choice == Exit
+     Stop program
+
+Else
+     Show invalid choice
+6. Menu Driven Logic
+
+Menu driven system का मतलब:
+
+User बार-बार menu देख सकता है और item select कर सकता है।
+
+Example logic:
+
+if(choice == 1)
+Burger
+
+else if(choice == 2)
+Pizza
+
+else if(choice == 3)
+Sandwich
+
+else if(choice == 4)
+Momos
+
+else if(choice == 5)
+ColdDrink
+
+else if(choice == 6)
+Exit
+
+else
+Invalid choice
+7. Variables Used
+Variable	Type	Purpose
+choice	int	User menu selection
+quantity	int	Item quantity
+total	int	Total bill
+foodItems	String[]	Food names
+prices	int[]	Food price
+8. Example Execution
+------ Food Stall Menu ------
+
+1 Burger      50
+2 Pizza       120
+3 Sandwich    70
+4 Momos       60
+5 ColdDrink   40
+6 Exit
+
+Enter your choice: 2
+
+Enter Quantity: 3
+
+Total Bill = 360
+9. Advantages
+
+✔ Simple logic
+✔ Easy to use
+✔ Real life application
+✔ Beginner friendly
+
+10. Future Improvements
+
+Future में इसमें add कर सकते हैं:
+
+Loop
+
+OOP
+
+Database
+
+Online order system
+
+Payment system
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Welcome to Food Stall B.TECH WALLAH
+Show Menu
+ * YES 
+ * NO
+YES
+
+----- MENU -----
+1. Sandwich = Rs 40
+2. Burger = Rs 80
+3. Pizza = Rs 150
+4. Pasta = Rs 120
+5. Noodles = Rs 90
+6. Chowmein = Rs 70
+7. Samosa = Rs 15
+8. Dosa = Rs 60
+9. Idli = Rs 40
+10. Vada = Rs 35
+How many items you want to order?
+5
+Enter Item Number
+3
+Enter Quantity
+5
+Enter Item Number
+1
+Enter Quantity
+2
+Enter Item Number
+10
+Enter Quantity
+1
+Enter Item Number
+5
+Enter Quantity
+2
+Enter Item Number
+7
+Enter Quantity
+6
+Total Amount = Rs 1135
+Thank You for Visiting Us again visit B.TECH WALLAH
