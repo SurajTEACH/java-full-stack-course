@@ -1,0 +1,197 @@
+1️⃣ Immutable Class Kya Hoti Hai
+
+👉 Immutable ka matlab hota hai “jo change nahi ho sakta”.
+
+Java me:
+
+Immutable class = ek aisi class jiska object create hone ke baad uski state change nahi ho sakti.
+
+Matlab object ke variables modify nahi kiye ja sakte.
+
+Example:
+
+String name = "Suraj";
+
+Agar aap likho:
+
+name = name + " Shah";
+
+To actually:
+
+new object create hota hai
+old object change nahi hota
+2️⃣ Simple Real Life Example
+
+Example:
+
+Aadhar Card
+
+Agar ek baar ban gaya to:
+
+Name change nahi hota
+DOB change nahi hota
+
+Ye immutable object jaisa concept hai.
+
+3️⃣ Java me Immutable Classes Examples
+
+Java me kuch built-in immutable classes hain:
+
+String
+Integer
+Double
+Float
+Long
+Boolean
+Character
+BigInteger
+BigDecimal
+
+Example:
+
+String s = "Java";
+
+s.concat(" Programming");
+
+System.out.println(s);
+
+Output:
+
+Java
+
+Kyuki concat() new object banata hai.
+
+4️⃣ Immutable Class Banane ke Rules
+
+Agar khud ki immutable class banana ho to ye rules follow karte hain.
+
+Rule 1️⃣ Class ko final banaye
+
+Taaki koi class inherit karke change na kar sake.
+
+final class Student {
+
+}
+Rule 2️⃣ Variables ko private final banaye
+private final int id;
+private final String name;
+Rule 3️⃣ Setter methods nahi hone chahiye
+
+Setter allow karega change karna.
+
+❌ Wrong
+
+void setName(String name)
+Rule 4️⃣ Variables ko constructor se initialize kare
+Student(int id, String name){
+   this.id = id;
+   this.name = name;
+}
+Rule 5️⃣ Sirf getters use kare
+public String getName(){
+   return name;
+}
+5️⃣ Immutable Class Example
+
+Complete example:
+
+final class Student {
+
+    private final int id;
+    private final String name;
+
+    Student(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+}
+
+Use:
+
+public class Test {
+
+    public static void main(String[] args){
+
+        Student s = new Student(1,"Rahul");
+
+        System.out.println(s.getName());
+
+    }
+
+}
+
+Yaha object change nahi ho sakta.
+
+6️⃣ Immutable Object Memory Concept
+
+Example:
+
+String s = "Java";
+
+Memory:
+
+s → Java
+
+Agar:
+
+s = s + " Programming";
+
+Memory:
+
+s → Java Programming
+old object → Java
+
+Yani new object create hota hai.
+
+7️⃣ Immutable Class Kyun Important Hai
+
+Java me immutable objects use karne ke benefits:
+
+1️⃣ Thread Safety
+
+Immutable objects automatically thread safe hote hain.
+
+Kyuki unki state change nahi hoti.
+
+Example:
+
+Multiple threads
+       |
+       |--- same object use kar sakte hain
+2️⃣ Security
+
+Sensitive data change nahi hota.
+
+Example:
+
+password
+URL
+configuration
+3️⃣ Performance Optimization
+
+Java String Pool use karta hai.
+
+Example:
+
+String a = "Java";
+String b = "Java";
+
+Dono same object use karte hain.
+
+4️⃣ Safe Caching
+
+Immutable objects caching ke liye perfect hote hain.
+
+Example:
+
+Integer cache
+String pool

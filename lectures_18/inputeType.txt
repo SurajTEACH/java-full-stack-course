@@ -1,0 +1,117 @@
+
+
+type of input
+*************************
+
+1 Scanner class
+2 BufferedReader class
+3 Console class
+4 DataInputStream class
+5 Command Line Arguments
+
+
+3️⃣ Scanner Class (Most Common)
+
+Ye sabse popular input method hai.
+
+Package:
+
+java.util.Scanner
+
+Example:
+
+import java.util.Scanner;
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        int num = sc.nextInt();
+
+        System.out.println("Number is: " + num);
+
+    }
+
+}
+
+| Method        | Use         |
+| ------------- | ----------- |
+| nextInt()     | integer     |
+| nextDouble()  | double      |
+| next()        | single word |
+| nextLine()    | full line   |
+| nextFloat()   | float       |
+| nextBoolean() | boolean     |
+
+
+4️⃣ BufferedReader Class
+
+Ye fast input method hai.
+
+Package:
+
+java.io
+
+Example:
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Test {
+
+    public static void main(String[] args) throws Exception {
+
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in));
+
+        System.out.print("Enter name: ");
+
+        String name = br.readLine();
+
+        System.out.println(name);
+
+    }
+
+}
+Number lene ke liye
+
+BufferedReader sirf String deta hai.
+
+Isliye conversion karna padta hai.
+
+Example:
+
+int num = Integer.parseInt(br.readLine());
+
+5️⃣ Console Class
+
+Console class secure input ke liye use hoti hai.
+
+Example: password input.
+
+Example:
+
+import java.io.Console;
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Console c = System.console();
+
+        String name = c.readLine("Enter name: ");
+
+        char[] pass = c.readPassword("Enter password: ");
+
+        System.out.println(name);
+
+    }
+
+}
+
+Note:
+
+IDE me console class kabhi kabhi work nahi karti
