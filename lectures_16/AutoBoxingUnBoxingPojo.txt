@@ -1,0 +1,445 @@
+• Why Java restricts a file to one public class•
+
+Java me rule hai:
+
+👉 Ek .java file me sirf ek hi public class ho sakti hai
+👉 Aur file ka naam us public class ke naam jaisa hi hona chahiye
+
+Example:
+
+public class Student {
+    
+}
+
+File name:
+
+Student.java
+
+Agar aap likho:
+
+public class Student {
+
+}
+
+public class Teacher {
+
+}
+
+❌ Error aayega
+
+Kyuki Java allow nahi karta multiple public classes in one file.
+
+2️⃣ Java Compiler ka Logic
+
+Java compiler (javac) file ko compile karta hai.
+
+Example:
+
+Student.java
+
+Usme agar ho:
+
+
+public class Student {
+
+}
+
+To compiler Student.class file banata hai.
+
+Agar 2 public class ho:
+
+Student
+Teacher
+
+To compiler confuse ho jayega:
+
+❓ File ka naam kya hona chahiye?
+
+Student.java
+Teacher.java
+
+Isliye Java rule bana diya:
+
+✅ One file = one public class
+
+1️⃣ Sabse Pehle – Wrapper Class Kya Hoti Hai
+********************************************************************************
+
+Java me primitive data types hote hain:
+
+byte
+short
+int
+long
+float
+double
+char
+boolean
+
+Ye primitive values store karte hain.
+
+Lekin kabhi-kabhi Java ko object chahiye hota hai.
+
+Is problem ko solve karne ke liye Java ne Wrapper Classes banayi.
+
+👉 Wrapper Class = Primitive data type ko object me convert karne wali class
+
+Example:
+
+int  → Integer
+double → Double
+char → Character
+boolean → Boolean
+
+Example code:
+
+int num = 10;
+
+Integer obj = Integer.valueOf(num);
+
+Yaha:
+
+num → primitive
+obj → object
+
+
+2️⃣ Wrapper Classes List
+*********************************************************************************
+
+| Primitive | Wrapper Class |
+| --------- | ------------- |
+| byte      | Byte          |
+| short     | Short         |
+| int       | Integer       |
+| long      | Long          |
+| float     | Float         |
+| double    | Double        |
+| char      | Character     |
+| boolean   | Boolean       |
+
+
+Example:
+
+Integer a = 10;
+Double b = 5.5;
+Character c = 'A';
+Boolean d = true;
+
+3️⃣ Wrapper Classes Kyun Exist Karti Hain
+********************************************************************************
+
+Primitive types object nahi hote.
+
+Lekin Java me bahut jagah object required hota hai.
+
+Example:
+
+❌ Primitive allowed nahi
+
+ArrayList<int>
+
+Java error dega.
+
+✅ Wrapper class allowed
+
+ArrayList<Integer>
+
+Example:
+
+import java.util.*;
+
+ArrayList<Integer> list = new ArrayList<>();
+
+list.add(10);
+list.add(20);
+
+Isliye wrapper classes exist karti hain.
+
+4️⃣ Primitive vs Object Difference
+
+| Primitive             | Wrapper Object         |
+| --------------------- | ---------------------- |
+| value store karta hai | object store karta hai |
+| fast hota hai         | thoda slow             |
+| methods nahi hote     | methods available      |
+| memory kam use        | memory zyada use       |
+
+
+Primitive:
+
+int a = 10;
+
+Wrapper:
+
+Integer a = 10;
+5️⃣ Wrapper Class Methods
+
+Wrapper classes bahut useful methods deti hain.
+
+Example:
+
+Integer class
+Integer num = 20;
+
+num.toString();
+num.compareTo(10);
+Integer.parseInt("50");
+Integer.max(10,20);
+
+Example:
+
+int x = Integer.parseInt("100");
+
+System.out.println(x);
+
+Output:
+
+100
+6️⃣ Autoboxing
+***************************************************************
+
+Java 5 ke baad autoboxing introduce hua.
+
+👉 Primitive automatically object me convert ho jata hai.
+
+Example:
+
+int a = 10;
+
+Integer obj = a;
+
+Behind the scene:
+
+Integer obj = Integer.valueOf(a);
+
+Example:
+
+ArrayList<Integer> list = new ArrayList<>();
+
+list.add(10);
+
+Behind the scene:
+
+list.add(Integer.valueOf(10));
+
+7️⃣ Unboxing
+************************************************
+
+Object ko wapas primitive me convert karna.
+
+Example:
+
+Integer obj = 50;
+
+int num = obj;
+
+Behind the scene:
+
+int num = obj.intValue();
+
+Example:
+
+Integer a = 100;
+
+int b = a;
+
+8️⃣ Internal Working (Advanced)
+
+Wrapper classes actually immutable classes hoti hain.
+
+Example:
+
+Integer
+String
+Double
+
+Immutable ka matlab:
+
+value change nahi hoti
+new object create hota hai
+
+Example:
+
+Integer a = 10;
+
+a = a + 5;
+
+Behind the scene:
+
+new Integer object create hota hai
+
+9️⃣ Integer Cache Mechanism
+
+Java optimization karta hai.
+
+Range:
+
+-128 to 127
+
+Example:
+
+Integer a = 100;
+Integer b = 100;
+
+System.out.println(a == b);
+
+Output:
+
+true
+
+Kyuki Java cache reuse karta hai.
+
+Example:
+
+Integer a = 200;
+Integer b = 200;
+
+System.out.println(a == b);
+
+Output:
+
+false
+
+Kyuki cache range ke bahar hai.
+
+🔟 Real World Use Cases
+
+Wrapper classes use hoti hain:
+
+1️⃣ Collections
+ArrayList
+HashSet
+HashMap
+
+Example:
+
+ArrayList<Integer> list = new ArrayList<>();
+2️⃣ Generics
+
+Generics primitive allow nahi karte.
+
+List<int> ❌
+List<Integer> ✅
+
+3️⃣ Utility Methods
+
+Example:
+
+Integer.parseInt()
+Double.parseDouble()
+
+4️⃣ Null Values
+
+Primitive me null nahi hota.
+
+Example:
+
+int a = null ❌
+
+Wrapper allow karta hai:
+
+Integer a = null
+
+1️⃣1️⃣ Memory Structure
+///////////////////////////////////////
+
+Primitive:
+
+Stack
+
+Wrapper object:
+
+Stack → reference
+Heap → object
+
+Example:
+
+Integer obj = 10
+
+Memory:
+
+Stack → reference
+Heap → Integer object
+
+1️⃣2️⃣ Interview Level Summary
+
+Wrapper class:
+
+primitive → object representation
+
+Purpose:
+
+1️⃣ Collections support
+2️⃣ Generics support
+3️⃣ Utility methods
+4️⃣ Null handling
+5️⃣ Object oriented programming support
+
+✅ Simple Definition
+
+Wrapper class primitive data type ko object me convert karne wali class hoti hai jisse Java ke object-based features use kiye ja sake.
+
+1️⃣ POJO Class Kya Hoti Hai
+****************************************************************************************************
+
+POJO = Plain Old Java Object
+
+Simple language me:
+
+👉 Ek simple Java class jisme koi special restriction ya framework dependency na ho.
+
+Matlab:
+
+normal variables
+
+getter setter
+
+constructor
+
+methods
+
+Bas ek simple Java object.
+
+Example:
+
+public class Student {
+
+    private int id;
+    private String name;
+
+    public Student() {
+    }
+
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+Ye ek perfect POJO class hai.
+
+2️⃣ POJO Class Ki Characteristics
+
+Ek class ko POJO hone ke liye usually ye features hote hain:
+
+1️⃣ Private variables (encapsulation)
+2️⃣ Public getters and setters
+3️⃣ Default constructor
+4️⃣ Koi framework dependency nahi
+5️⃣ Simple Java logic

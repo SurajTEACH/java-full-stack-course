@@ -1,0 +1,400 @@
+Types of Nested Classes in Java
+*********************************************
+
+1️⃣ Nested Class Kya Hoti Hai
+
+Simple language me:
+
+👉 Ek class ke andar doosri class define karna = Nested Class
+
+Example:
+
+class Outer {
+
+    class Inner {
+
+    }
+
+}
+
+Nested Classes
+      |
+      |---- Static Nested Class
+      |
+      |---- Non-Static Nested Class (Inner Class)
+                |
+                |---- Member Inner Class
+                |---- Local Inner Class
+                |---- Anonymous Inner Class
+
+1️⃣ Static Nested Class Kya Hoti Hai
+
+Simple definition:
+
+👉 Ek class jo kisi outer class ke andar define ho aur static keyword use kare, usse Static Nested Class kehte hain.
+
+Example:
+
+class Outer {
+
+    static class Inner {
+
+        void show() {
+            System.out.println("Static Nested Class");
+        }
+
+    }
+
+}
+
+Structure:
+
+Outer Class
+     |
+     |---- Static Nested Class
+
+Yani class ke andar class, lekin static nature ke saath.
+
+2️⃣ Static Nested Class Kaise Use Hoti Hai
+
+Static nested class ko use karne ke liye outer class ka object banana zaruri nahi hota.
+
+Example:
+
+class Outer {
+
+    static class Inner {
+
+        void display() {
+            System.out.println("Hello from Static Nested Class");
+        }
+
+    }
+
+}
+
+Main method:
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Outer.Inner obj = new Outer.Inner();
+
+        obj.display();
+
+    }
+
+}
+
+Output:
+
+Hello from Static Nested Class
+3️⃣ Static Nested Class Ki Important Properties
+1️⃣ Outer class object ki zarurat nahi
+Outer.Inner obj = new Outer.Inner();
+2️⃣ Sirf outer class ke static members access kar sakti hai
+
+Example:
+
+class Outer {
+
+    static int x = 10;
+    int y = 20;
+
+    static class Inner {
+
+        void show() {
+
+            System.out.println(x); // allowed
+            // System.out.println(y); // not allowed
+
+        }
+
+    }
+
+}
+
+Kyuki y non-static hai.
+
+3️⃣ Independent class jaisa behave karti hai
+
+Static nested class ka behavior almost top-level class jaisa hota hai.
+
+4️⃣ Static Nested Class Kyun Use Karte Hain
+
+Java designers ne ye concept introduce kiya 3 main reasons ke liye:
+
+1️⃣ Logical grouping
+
+Agar ek class sirf ek outer class se related ho.
+
+Example:
+
+Car
+  |
+  |-- Engine
+
+Engine ko alag file me rakhne ki zarurat nahi.
+
+2️⃣ Encapsulation
+
+Nested class ko private bhi bana sakte hain.
+
+Example:
+
+class Database {
+
+    private static class ConnectionHelper {
+
+    }
+
+}
+
+Ye class sirf Database class ke andar hi use hogi.
+
+3️⃣ Memory optimization
+
+Agar inner class ko outer object ki zarurat nahi to static banana better hota hai.
+
+Kyuki non-static inner class ke paas outer object reference hota hai.
+
+Static nested class me ye reference nahi hota.
+
+5️⃣ Static Nested vs Inner Class
+
+| Feature                   | Static Nested | Inner Class |
+| ------------------------- | ------------- | ----------- |
+| static keyword            | Yes           | No          |
+| outer object required     | No            | Yes         |
+| static members access     | Yes           | Yes         |
+| non-static members access | No            | Yes         |
+| memory usage              | less          | more        |
+
+
+7️⃣ Real World Use Cases of Static Nested Classes
+
+Ab sabse important part: real industry use cases.
+
+1️⃣ Builder Design Pattern
+
+Static nested class ka sabse famous use case hai.
+
+2️⃣ Helper Classes
+
+Kabhi kabhi ek class ko helper functionality chahiye hoti hai.
+
+3️⃣ Data Structures
+
+Nested classes use hoti hain data structure implementation me.
+Enum Internal Implementation
+
+Java enums internally nested classes ka use karte hain.
+
+1️⃣ Local Classes Inside Methods
+Definition
+
+👉 Local class wo class hoti hai jo kisi method ke andar define hoti hai.
+
+Matlab class ka scope sirf us method ke andar hi hota hai.
+
+Example
+class Outer {
+
+    void show() {
+
+        class LocalInner {
+
+            void display() {
+                System.out.println("Local Inner Class");
+            }
+
+        }
+
+        LocalInner obj = new LocalInner();
+        obj.display();
+    }
+
+}
+
+Structure:
+
+Outer Class
+     |
+     |---- method()
+             |
+             |---- Local Inner Class
+Important Rules
+
+1️⃣ Local class method ke bahar access nahi hoti
+
+void show(){
+
+    class LocalInner{
+
+    }
+
+}
+
+Agar aap method ke bahar use karoge to error aayega.
+
+2️⃣ Local class method ke local variables access kar sakti hai
+
+Example:
+
+class Outer {
+
+    void show() {
+
+        int x = 20;
+
+        class LocalInner {
+
+            void display() {
+                System.out.println(x);
+            }
+
+        }
+
+        new LocalInner().display();
+    }
+
+}
+
+Output
+
+20
+
+3️⃣ Local class static members normally declare nahi kar sakti
+
+Except:
+
+static final constants
+
+Example:
+
+class LocalInner{
+
+    static final int x = 10;
+
+}
+2️⃣ Local Class Kyun Use Karte Hain
+
+Local class tab use hoti hai jab:
+
+✔ class sirf ek method me hi use ho
+✔ code readable rakhna ho
+✔ temporary logic create karna ho
+
+Example real scenario:
+
+DataProcessor
+      |
+      |-- process()
+              |
+              |-- Validation class
+
+3️⃣ Effective Final Rule
+
+Ye rule Java 8 ke baad introduce hua.
+
+Simple Definition
+
+👉 Agar koi local variable change nahi ho raha to wo automatically final treat hota hai.
+
+Isko effectively final kehte hain.
+
+Example
+void show(){
+
+    int x = 10;
+
+    class Inner{
+
+        void display(){
+            System.out.println(x);
+        }
+
+    }
+
+}
+
+Yaha x change nahi ho raha.
+
+To x effectively final hai.
+
+Agar variable change ho gaya
+
+Example:
+
+void show(){
+
+    int x = 10;
+
+    x = 20;
+
+    class Inner{
+
+        void display(){
+            System.out.println(x);
+        }
+
+    }
+
+}
+
+❌ Compile error
+
+Kyuki x final nahi raha.
+
+5️⃣ Anonymous Classes
+Definition
+
+👉 Anonymous class wo class hoti hai jiska koi naam nahi hota.
+
+Use tab karte hain jab:
+
+✔ class sirf ek baar use karni ho
+✔ short implementation chahiye ho
+
+Syntax
+new ClassOrInterface(){
+
+   method implementation
+
+}
+6️⃣ Anonymous Class Example
+
+Example:
+
+abstract class Animal {
+
+    abstract void sound();
+
+}
+
+Anonymous implementation:
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Animal a = new Animal(){
+
+            void sound(){
+                System.out.println("Dog Bark");
+            }
+
+        };
+
+        a.sound();
+    }
+
+}
+
+Output
+
+Dog Bark
+
+Yaha class ka naam nahi hai.
+
