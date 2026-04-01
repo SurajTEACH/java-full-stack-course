@@ -1,0 +1,132 @@
+🔥 Enum kya hota hai? (Simple Language)
+
+👉 Enum = fixed values ka group
+
+मतलब:
+
+जब आपको पता हो कि values limited हैं (fixed हैं), तब हम enum use करते हैं
+
+🎯 Real Life Example
+
+मान लो:
+
+Days = MONDAY, TUESDAY, WEDNESDAY…
+Status = SUCCESS, FAILED, PENDING
+Gender = MALE, FEMALE
+
+👉 ये सब fixed values हैं → इसलिए enum perfect है
+
+✅ Enum banane ka syntax
+enum Day {
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    SUNDAY
+}
+
+👉 बस इतना simple 😄
+
+🧠 Use kaise kare?
+public class Test {
+    public static void main(String[] args) {
+
+        Day today = Day.MONDAY;
+
+        System.out.println(today);
+    }
+}
+
+👉 Output:
+
+MONDAY
+⚡ Important Point (Interview me aata hai)
+
+👉 enum internally class hota hai
+👉 aur sab values = object hoti hain
+
+🎯 Switch case me enum (Most important)
+Day today = Day.SUNDAY;
+
+switch (today) {
+    case MONDAY:
+        System.out.println("Working day");
+        break;
+
+    case SUNDAY:
+        System.out.println("Holiday 😎");
+        break;
+}
+🚀 Enum ke methods (Bahut important)
+1. values()
+
+👉 sab values return karta hai
+
+for (Day d : Day.values()) {
+    System.out.println(d);
+}
+2. valueOf()
+
+👉 string se enum banata hai
+
+Day d = Day.valueOf("MONDAY");
+System.out.println(d);
+3. ordinal()
+
+👉 position batata hai (index)
+
+System.out.println(Day.MONDAY.ordinal()); // 0
+System.out.println(Day.SUNDAY.ordinal()); // 6
+💡 Advanced Enum (Constructor + Variable)
+enum Status {
+    SUCCESS(200),
+    FAILED(500),
+    PENDING(300);
+
+    int code;
+
+    Status(int code) {
+        this.code = code;
+    }
+
+    int getCode() {
+        return code;
+    }
+}
+
+👉 Use:
+
+public class Test {
+    public static void main(String[] args) {
+
+        Status s = Status.SUCCESS;
+        System.out.println(s.getCode());
+    }
+}
+
+👉 Output:
+
+200
+🧠 Real Use (MNC level)
+
+👉 enum use hota hai:
+
+Role (ADMIN, USER, SALES)
+Order Status
+Payment Status
+API Response Status
+
+Example:
+
+enum Role {
+    ADMIN,
+    SALES,
+    CUSTOMER
+}
+❌ Enum vs Normal Variable
+Normal Variable	Enum
+kuch bhi value aa sakti hai	sirf fixed values
+error ka chance zyada	safe
+type-safe nahi	type-safe

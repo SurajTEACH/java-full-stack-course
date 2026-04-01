@@ -149,6 +149,7 @@ void Student()
 ✔ sahi
 
 Student()
+
 3️⃣ Automatically call hota hai
 
 Manual call nahi hota normally.
